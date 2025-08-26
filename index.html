@@ -259,7 +259,7 @@ async function sendMessage(){
     const res = await fetch(OPENAI_PROXY_URL,{
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({ messages, userId, mode:"text" })
+      body: JSON.stringify({ messages, userId, mode:"bankruptcy" })
     });
     const data = await res.json();
     let reply = data.choices?.[0]?.message?.content || "Ошибка";
