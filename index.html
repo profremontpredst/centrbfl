@@ -327,25 +327,32 @@ async function sendMessage(){
   }
 
   document.getElementById("leadSubmitBtn").addEventListener("click", async ()=>{
-    const name = document.getElementById("leadName").value.trim();
-    const phone = document.getElementById("leadPhone").value.trim();
-    if(!name || phone.length<10){ alert("Введите имя и телефон"); return; }
+  const name = document.getElementById("leadName").value.trim();
+  let phone = document.getElementById("leadPhone").value.replace(/\D/g,""); 
 
-    const payload = { name, phone, userId:"user_"+Date.now(), messages };
+  if(!name || phone.length < 10){ 
+    alert("Введите имя и корректный номер телефона"); 
+    return; 
+  }
 
-    document.getElementById("leadPopup").style.display="none";
-    document.getElementById("leadThanks").style.display="block";
+  // нормализуем к виду +7XXXXXXXXXX
+  phone = "+7" + phone.slice(-10);
 
-    setTimeout(closeLeadForms, 3000);
+  const payload = { name, phone, userId, messages };
 
-    try {
-      await fetch(LEAD_URL,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(payload)
-      });
-    }catch(e){ console.error("Ошибка отправки",e); }
-  });
+  document.getElementById("leadPopup").style.display="none";
+  document.getElementById("leadThanks").style.display="block";
+
+  setTimeout(closeLeadForms, 3000);
+
+  try {
+    await fetch(LEAD_URL,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(payload)
+    });
+  }catch(e){ console.error("Ошибка отправки",e); }
+});
 </script>
 </body>
 </html>
