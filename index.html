@@ -247,6 +247,10 @@
  // глобально сверху добавь:
 let userId = localStorage.getItem("userId") || "user_" + Math.random().toString(36).substr(2,9);
 localStorage.setItem("userId", userId);
+  // UTM-метки
+const urlParams = new URLSearchParams(window.location.search);
+const utm_source = urlParams.get("utm_source") || "";
+const utm_content = urlParams.get("utm_content") || "";
 
 // а саму функцию полностью замени:
 async function sendMessage(){
@@ -339,7 +343,7 @@ async function sendMessage(){
   // нормализуем к виду +7XXXXXXXXXX
   phone = "+7" + phone.slice(-10);
 
-  const payload = { name, phone, userId, messages };
+  const payload = { name, phone, userId, messages, utm_source, utm_content };
 
   document.getElementById("leadPopup").style.display="none";
   document.getElementById("leadThanks").style.display="block";
