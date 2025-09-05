@@ -1,363 +1,330 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Банкротство физических лиц</title>
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/xj4FGtBg/42355013-1.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Виджет Анна</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f7f9fb; color: #333; line-height: 1.5; }
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      font-family: Arial, sans-serif; background: transparent; color: #333;
+    }
+    .widget-container {
+      position: fixed; bottom: 20px; right: 20px; width: 360px; height: 580px;
+      background: rgba(255, 255, 255, 0.85); border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3); display: flex; flex-direction: column;
+      overflow: hidden; z-index: 9999; backdrop-filter: blur(12px);
+    }
+    @media (max-width: 768px) {
+      .widget-container { position: fixed !important; inset: 0 !important; width: 100vw !important; height: 100dvh !important; max-height: 100dvh !important; border-radius: 0 !important; }
+    }
+    .tabs { display: flex; justify-content: center; background: linear-gradient(to right, #72c9ff, #0094ff); border-bottom: 1px solid #ccc; }
+    .tab { padding: 12px 16px; cursor: pointer; color: #fff; font-size: 14px; transition: background 0.2s; }
+    .tab.active { background: rgba(255,255,255,0.15); border-bottom: 2px solid #fff; color: #fff; }
 
-    header {
-      background: linear-gradient(rgba(10,61,98,0.8), rgba(10,61,98,0.8)),
-                  url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
-      color: white; text-align: center; padding: 100px 20px;
-    }
-    header h1 { font-size: 42px; margin-bottom: 20px; }
-    header p { font-size: 20px; margin-bottom: 30px; }
-    .btn {
-      display: inline-block; padding: 14px 28px; background: #ff6b6b;
-      color: white; font-weight: bold; border-radius: 8px; text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s;
-    }
-    .btn:hover { background: #ff4b4b; }
+    .chat-window { flex: 1; display: none; flex-direction: column; height: 100%; overflow: hidden; }
+    .chat-window.active { display: flex; }
+    .chat-box { flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; justify-content: flex-end; }
+    .message { margin-bottom: 8px; padding: 10px 14px; border-radius: 14px; max-width: 85%; font-size: 14px; word-break: break-word; backdrop-filter: blur(4px); display: flex; flex-direction: column; gap: 6px; overflow: visible; }
+    .from-user { background: rgba(0, 148, 255, 0.2); align-self: flex-end; color: #003366; }
+    .from-bot { background: rgba(0, 0, 0, 0.05); align-self: flex-start; color: #222; }
+    .chat-controls { display: flex; gap: 6px; padding: 10px; background: rgba(255,255,255,0.6); box-sizing: border-box; border-top: 1px solid #ddd; backdrop-filter: blur(8px); }
+    .chat-input { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 12px; font-size: 14px; outline: none; }
+    button { padding: 10px; border: none; border-radius: 12px; background-color: #0094ff; color: #fff; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    button:hover { background-color: #007cd6; }
+    button svg { width: 18px; height: 18px; fill: white; }
+    .bot-label { font-weight: bold; color: #0074bc; }
+    #voice-status { padding: 15px; font-size: 14px; color: #444; text-align: center; background: rgba(255,255,255,0.5); backdrop-filter: blur(6px); }
+    .mic-button { width: 80px; height: 80px; border-radius: 50%; background-color: #0094ff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; margin: 20px auto; transition: background 0.3s; }
+    .mic-button:hover { background-color: #007cd6; }
+    .mic-button svg { width: 30px; height: 30px; fill: white; }
+    .chat-window, .chat-box { min-height: 0 !important; overflow-y: auto !important; }
+    .widget-container { overflow: auto !important; }
 
-    .section { padding: 60px 20px; max-width: 1100px; margin: auto; }
-    .section h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: #0a3d62; }
-
-    .features { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .feature {
-      flex: 1 1 300px; background: white; padding: 30px;
-      border-radius: 12px; text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s;
+    /* быстрые подсказки */
+    .suggest-row { display:flex; gap:8px; padding:8px 10px 10px; background: rgba(255,255,255,0.75); border-bottom:1px solid #e8e8e8; flex-wrap:wrap; }
+    .suggest-btn {
+      font-size:12px; line-height:1; padding:8px 10px; border-radius:999px;
+      background:#eef6ff; color:#0d5ea6; border:1px solid #cfe6ff; cursor:pointer;
     }
-    .feature:hover { transform: translateY(-5px); }
-    .feature img { width: 60px; margin-bottom: 15px; }
-
-    .reviews { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-    .review {
-      flex: 1 1 300px; background: #fff; padding: 20px; border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1); font-style: italic;
-    }
-    .review strong { display: block; margin-top: 10px; font-style: normal; }
-
-    footer {
-      background: #0a3d62; color: #fff; text-align: center; padding: 30px;
-    }
-
-    /* Chat block */
-    .chat-container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      height: 600px;
-      overflow: hidden;
-    }
-    .chat-header {
-      background: #0a3d62;
-      color: white;
-      padding: 15px;
-      font-weight: bold;
-      text-align: center;
-    }
-    .chat-messages {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      background: #f4f6f9;
-    }
-    .message {
-      max-width: 80%;
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    .bot {
-      background: #eef4f9;
-      align-self: flex-start;
-    }
-    .user {
-      background: #ff6b6b;
-      color: white;
-      align-self: flex-end;
-    }
-    .chat-suggestions {
-      padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      border-top: 1px solid #ddd;
-      background: #fafafa;
-    }
-    .chat-suggestions button {
-      padding: 8px 14px;
-      border: none;
-      border-radius: 20px;
-      background: #eef4f9;
-      cursor: pointer;
-      font-size: 13px;
-      transition: 0.3s;
-    }
-    .chat-suggestions button:hover {
-      background: #d6e4f0;
-    }
-    .chat-input {
-      display: flex;
-      border-top: 1px solid #ddd;
-    }
-    .chat-input input {
-      flex: 1;
-      padding: 14px;
-      border: none;
-      outline: none;
-      font-size: 14px;
-    }
-    .chat-input button {
-      padding: 0 20px;
-      border: none;
-      background: #ff6b6b;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .chat-input button:hover { background: #ff4b4b; }
-    .chat-input button svg { width: 18px; height: 18px; fill: white; }
-
-    /* Popup form */
-    #leadOverlay {
-      display:none; position:fixed; inset:0;
-      background:rgba(0,0,0,0.6); z-index:9998;
-    }
-    #leadPopup, #leadThanks {
-      display:none; position:fixed; top:50%; left:50%;
-      transform:translate(-50%,-50%);
-      background:#fff; color:#333; padding:20px;
-      border-radius:16px; z-index:9999;
-      max-width:400px; width:90%;
-      box-shadow:0 0 20px rgba(0,0,0,0.4);
-      text-align:center;
-    }
-    #leadPopup h3 { margin-bottom:15px; color:#0a3d62; }
-    #leadPopup input {
-      width:100%; padding:10px; border-radius:8px;
-      border:1px solid #ccc; margin-bottom:10px;
-    }
-    #leadPopup button {
-      width:100%; padding:12px;
-      border:none; border-radius:8px;
-      background-color:#ff6b6b; color:#fff;
-      font-weight:bold; cursor:pointer;
-    }
-    #leadPopup button:hover { background:#ff4b4b; }
+    .suggest-btn:hover { background:#e1f0ff; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Центр Банкротства физических лиц</h1>
-    <p>Простой путь к финансовой свободе. Юристы + технологии.</p>
-    <a href="#scanner" class="btn">Пройти онлайн-сканер</a>
-  </header>
+  <div class="widget-container">
+    <div class="tabs">
+      <div class="tab active" onclick="switchMode('text')">Переписка</div>
+      <div class="tab" onclick="switchMode('voice')">Разговор</div>
+    </div>
 
-  <section id="scanner" class="section">
-    <h2>Как это работает</h2>
-    <div class="features">
-      <div class="feature">
-        <img src="https://img.icons8.com/color/96/contract.png"/>
-        <h3>Онлайн-сканер</h3>
-        <p>Пройдите быструю проверку и узнайте, подходит ли вам банкротство.</p>
+    <!-- ВЕРХНИЙ БЛОК "Бесплатные юристы" -->
+    <section style="position:relative;width:100%;min-height:180px;background:#fff center/cover no-repeat url('https://i.imgur.com/k2Dpj2P.png');border-bottom:1px solid #e8e8e8;">
+      <div style="position:absolute;inset:0;padding:16px;display:flex;flex-direction:column;justify-content:center;gap:10px;background:rgba(255,255,255,0.55);backdrop-filter:blur(3px);">
+        <div style="font-weight:700;font-size:16px;color:#1e2a33;line-height:1.3;">Почему бесплатные юристы помогают не хуже, а иногда и лучше</div>
+        <ul style="margin:0;padding-left:18px;color:#31424d;font-size:13px;line-height:1.35;">
+          <li><b>Опыт и практика.</b> Бесплатный — не значит «без квалификации».</li>
+          <li><b>24/7.</b> Доступность в любое время суток.</li>
+          <li><b>Конкретные ответы.</b> Без лишней воды и «затягивания».</li>
+        </ul>
       </div>
-      <div class="feature">
-        <img src="https://img.icons8.com/color/96/artificial-intelligence.png"/>
-        <h3>AI-ассистент</h3>
-        <p>Ответит на вопросы 24/7 и поможет разобраться в деталях.</p>
+    </section>
+
+    <!-- ТЕКСТОВЫЙ ЧАТ -->
+    <div class="chat-window active" id="text-chat">
+      <!-- шапка -->
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.8);border-bottom:1px solid #e8e8e8;backdrop-filter:blur(6px);">
+        <img src="https://i.imgur.com/VnE8ZUa.png" alt="Анна" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex:0 0 36px;">
+        <div style="font-weight:700;color:#0d5ea6;font-size:14px;">Здравствуйте! Я на связи. Консультант Анна.</div>
       </div>
-      <div class="feature">
-        <img src="https://img.icons8.com/color/96/movies-folder.png"/>
-        <h3>Кейсы клиентов</h3>
-        <p>Реальные истории и видео-отзывы людей, которые уже прошли процедуру.</p>
+      <!-- быстрые подсказки -->
+      <div class="suggest-row">
+        <button class="suggest-btn" onclick="quickAsk('Перезвоните мне')">перезвоните мне</button>
+        <button class="suggest-btn" onclick="quickAsk('Где вы находитесь?')">где вы находитесь</button>
+        <button class="suggest-btn" onclick="quickAsk('Вопрос по банкротству')">вопрос по банкротству</button>
+      </div>
+      <div class="chat-box"><div id="chat"></div></div>
+      <div class="chat-controls">
+        <input class="chat-input" id="chatInput" type="text" placeholder="Введите сообщение..." />
+        <button onclick="sendMessage()" title="Отправить">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.8c-3.6-1.5-7.6-1.5-11.2 0L36.3 189.7c-5.9 2.4-9.8 8.1-9.8 14.3s3.9 11.9 9.8 14.3l138.3 57.6 57.6 138.3c2.4 5.9 8.1 9.8 14.3 9.8 6.2 0 11.9-3.9 14.3-9.8L508.2 47.2c3.7-8.7-.2-18.6-9.6-23.4z"/></svg>
+        </button>
+        <button onclick="startTextVoice()" title="Голосом">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M192 256c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32s32-14.3 32 32V256zM160 320c35.3 0 64-28.7 64-64V128a64 64 0 1 0-128 0V256c0 35.3 28.7 64 64 64zm56 32H104c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v56c0 13.3 10.7 24 24 24s24-10.7 24-24V400h24c13.3 0 24-10.7 24-24s-10.7-24-24-24z"/></svg>
+        </button>
       </div>
     </div>
 
-    <!-- Chat -->
-    <div class="chat-container">
-      <div class="chat-header">Онлайн-консультант</div>
-      <div class="chat-messages" id="chat"></div>
-      <div class="chat-suggestions">
-        <button onclick="quickSend('Какие долги списываются?')">Какие долги списываются?</button>
-        <button onclick="quickSend('Сколько стоит?')">Сколько стоит?</button>
-        <button onclick="quickSend('Записаться на консультацию')">Записаться на консультацию</button>
+    <!-- ГОЛОСОВОЙ ЧАТ -->
+    <div class="chat-window" id="voice-chat">
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.8);border-bottom:1px solid #e8e8e8;backdrop-filter:blur(6px);">
+        <img src="https://i.imgur.com/VnE8ZUa.png" alt="Анна" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex:0 0 36px;">
+        <div style="font-weight:700;color:#0d5ea6;font-size:14px;">Здравствуйте! Я на связи. Консультант Анна.</div>
       </div>
-      <div class="chat-input">
-        <button onclick="startVoice()" title="Говорить">
+      <div id="voice-status">Нажмите на микрофон, чтобы начать</div>
+      <div style="text-align:center;">
+        <button class="mic-button" title="Говорить">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M192 256c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32s32 14.3 32 32V256zM160 320c35.3 0 64-28.7 64-64V128a64 64 0 1 0-128 0V256c0 35.3 28.7 64 64 64zm56 32H104c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v56c0 13.3 10.7 24 24 24s24-10.7 24-24V400h24c13.3 0 24-10.7 24-24s-10.7-24-24-24z"/></svg>
         </button>
-        <input type="text" id="chatInput" placeholder="Введите ваш вопрос...">
-        <button onclick="sendMessage()">Отправить</button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <footer>
-    © 2025. Центр банкротства. Бесплатная консультация: 8-800-222-05-42
-  </footer>
+ <script>
+const OPENAI_PROXY_URL = "https://openai-gpt-proxy-mcnj.onrender.com/gpt";
+const ELEVENLABS_STREAM_URL = "https://elevenlabs-proxy-1o1s.onrender.com/stream";
 
-  <!-- Overlay + Form + Thanks -->
-<div id="leadOverlay"></div>
-
-<div id="leadPopup">
-  <h3 id="leadTitle">Оставьте заявку</h3>
-  <input id="leadName" placeholder="Ваше имя">
-  <input id="leadPhone" placeholder="+7 (___) ___-__-__">
-  <button id="leadSubmitBtn">Оставить заявку</button>
-</div>
-
-<div id="leadThanks">
-  <div>✅ Спасибо за заявку, скоро свяжемся с вами</div>
-</div>
-
-<script src="https://unpkg.com/imask"></script>
-<script>
-  const OPENAI_PROXY_URL = "https://openai-gpt-proxy-mcnj.onrender.com/gpt";
-  const LEAD_URL = "https://openai-gpt-proxy-mcnj.onrender.com/lead";
-
-  let messages = [];
-  const chatBox = document.getElementById("chat");
-  const chatInput = document.getElementById("chatInput");
-
-  function appendMessage(text, fromUser=false){
-    const div = document.createElement("div");
-    div.className = "message " + (fromUser ? "user" : "bot");
-    div.textContent = text;
-    chatBox.appendChild(div);
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
-
- // глобально сверху добавь:
-let userId = localStorage.getItem("userId") || "user_" + Math.random().toString(36).substr(2,9);
+let messages = [];
+const userId = localStorage.getItem("userId") || "user_" + Math.random().toString(36).substr(2, 9);
 localStorage.setItem("userId", userId);
-  // UTM-метки
+
+const chatBox = document.querySelector(".chat-box");
+const chatInput = document.getElementById("chatInput");
+const micButton = document.querySelector(".mic-button");
+
 const urlParams = new URLSearchParams(window.location.search);
-const utm_source = urlParams.get("utm_source") || "";
-const utm_content = urlParams.get("utm_content") || "";
+let widgetMode = urlParams.get("mode") || "text";
 
-// а саму функцию полностью замени:
-async function sendMessage(){
-  const text = chatInput.value.trim();
-  if(!text) return;
-  appendMessage(text,true);
-  messages.push({role:"user", content:text});
-  chatInput.value="";
-
-  try {
-    const res = await fetch(OPENAI_PROXY_URL,{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({ messages, userId, mode:"bankruptcy" })
-    });
-    const data = await res.json();
-    let reply = data.choices?.[0]?.message?.content || "Ошибка";
-
-    // ловим [openLeadForm] или triggerForm
-    if(/\[openLeadForm\]/i.test(reply) || data.triggerForm){
-      const clean = reply.replace(/\[openLeadForm\]/gi,"").trim();
-      document.getElementById("leadTitle").innerText = clean || "Оставьте заявку";
-      openLeadForm();
-      reply = clean;
-    }
-
-    appendMessage(reply,false);
-    messages.push({role:"assistant", content:reply});
-  } catch(e){
-    appendMessage("Ошибка соединения",false);
-  }
-}
-
-  function quickSend(text){
-    chatInput.value=text;
-    sendMessage();
-  }
-
-  function startVoice(){
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.lang = "ru-RU";
-    recognition.start();
-    recognition.onresult = (e)=>{
-      const text = e.results[0][0].transcript;
-      chatInput.value=text;
-      sendMessage();
-    };
-    recognition.onerror=()=>alert("Ошибка распознавания");
-  }
-
-  chatInput.addEventListener("keydown", e=>{
-    if(e.key==="Enter" && !e.shiftKey){
+document.addEventListener("DOMContentLoaded", () => {
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
   });
+});
 
-  window.addEventListener("load",()=>{
-    setTimeout(()=>{
-      if(messages.length===0){
-        appendMessage("Здравствуйте! Я помогу вам разобраться с процедурой банкротства.",false);
+// быстрые подсказки
+function quickAsk(text){
+  chatInput.value = text;
+  sendMessage();
+}
+
+function switchMode(mode) {
+  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+  document.querySelectorAll('.chat-window').forEach(win => win.classList.remove('active'));
+  if (mode === 'text') {
+    document.querySelector('.tab:nth-child(1)').classList.add('active');
+    document.getElementById('text-chat').classList.add('active');
+  } else {
+    document.querySelector('.tab:nth-child(2)').classList.add('active');
+    document.getElementById('voice-chat').classList.add('active');
+  }
+}
+
+// 🔥 только форма
+async function handleFormTags(fullText) {
+  if (/\[openLeadForm\]/i.test(fullText)) {
+    parent.postMessage({ type: "open-form" }, "*");
+  }
+}
+
+function sendMessage() {
+  const text = chatInput.value.trim();
+  if (!text) return;
+
+  appendMessage(text, true);
+  messages.push({ role: "user", content: text });
+  chatInput.value = "";
+
+  fetch(OPENAI_PROXY_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages, userId, mode: widgetMode })
+  })
+    .then(res => res.json())
+    .then(async data => {
+      const gptMessage = data.choices?.[0]?.message?.content || "";
+
+      // 🔥 проверка и по тексту, и по флагу triggerForm
+      if (data?.triggerForm || /\[openLeadForm\]/i.test(gptMessage)) {
+        parent.postMessage({ type: "open-form" }, "*");
       }
-    },1000);
-  });
 
-  // === Форма ===
-  IMask(document.getElementById("leadPhone"), { mask: "+{7} (000) 000-00-00" });
+      appendMessage(gptMessage, false);
+      const cleanForHistory = gptMessage.replace(/\[openLeadForm\]/gi, "").trim();
+      messages.push({ role: "assistant", content: cleanForHistory });
+    })
+    .catch(error => console.error("❌ Ошибка при отправке запроса:", error));
+}
 
-  function openLeadForm(){
-    document.getElementById("leadOverlay").style.display="block";
-    document.getElementById("leadPopup").style.display="block";
+function appendMessage(text, isUser) {
+  const msg = document.createElement("div");
+  msg.className = "message " + (isUser ? "from-user" : "from-bot");
+  let display = text;
+
+  if (!isUser && /\[openLeadForm\]/i.test(display)) {
+    parent.postMessage({ type: "open-form" }, "*");
+    display = display.replace(/\[openLeadForm\]/gi, "").trim();
   }
 
-  document.getElementById("leadOverlay").addEventListener("click", closeLeadForms);
-  function closeLeadForms(){
-    document.getElementById("leadOverlay").style.display="none";
-    document.getElementById("leadPopup").style.display="none";
-    document.getElementById("leadThanks").style.display="none";
+  msg.innerHTML = isUser
+    ? `<span class='user-label'>Вы:</span> ${display}`
+    : `<span class='bot-label'>Анна:</span> ${display}`;
+
+  document.getElementById("chat").appendChild(msg);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function startTextVoice() {
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  recognition.lang = "ru-RU";
+  recognition.start();
+  recognition.onresult = (event) => {
+    const text = event.results[0][0].transcript;
+    chatInput.value = text;
+    sendMessage();
+  };
+  recognition.onerror = () => alert("Ошибка распознавания");
+}
+
+let isListening = false;
+let recognition;
+
+micButton.addEventListener("click", () => {
+  const status = document.getElementById("voice-status");
+
+  if (!isListening) {
+    recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "ru-RU";
+    recognition.continuous = true;
+    recognition.interimResults = false;
+
+    recognition.onstart = () => {
+      status.innerText = "🎤 Слушаю...";
+      isListening = true;
+    };
+
+    recognition.onresult = async (event) => {
+      const text = event.results[event.results.length - 1][0].transcript;
+      status.innerText = "🗣 " + text;
+      messages.push({ role: "user", content: text });
+
+      try {
+        const res = await fetch(OPENAI_PROXY_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ messages, userId, mode: widgetMode === "text" ? "voice" : widgetMode })
+        });
+
+        const data = await res.json();
+        const reply = data?.choices?.[0]?.message?.content || "Ошибка";
+
+        // 🔥 проверка на форму
+        if (reply.includes("[openLeadForm]") || data?.triggerForm) {
+          parent.postMessage({ type: "open-form" }, "*");
+        }
+
+        const voiceText = reply.replace(/\[openLeadForm\]/gi, "").trim();
+        messages.push({ role: "assistant", content: voiceText });
+        speakText(voiceText);
+      } catch (err) {
+        console.error("Ошибка GPT:", err);
+      }
+    };
+
+    recognition.onend = () => {};
+    recognition.start();
+  } else {
+    recognition.stop();
+    status.innerText = "Нажмите на микрофон, чтобы начать";
+    isListening = false;
   }
+});
 
-  document.getElementById("leadSubmitBtn").addEventListener("click", async ()=>{
-  const name = document.getElementById("leadName").value.trim();
-  let phone = document.getElementById("leadPhone").value.replace(/\D/g,""); 
-
-  if(!name || phone.length < 10){ 
-    alert("Введите имя и корректный номер телефона"); 
-    return; 
-  }
-
-  // нормализуем к виду +7XXXXXXXXXX
-  phone = "+7" + phone.slice(-10);
-
-  const payload = { name, phone, userId, messages, utm_source, utm_content };
-
-  document.getElementById("leadPopup").style.display="none";
-  document.getElementById("leadThanks").style.display="block";
-
-  setTimeout(closeLeadForms, 3000);
-
+async function speakText(text) {
   try {
-    await fetch(LEAD_URL,{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(payload)
+    if (recognition && isListening) recognition.stop();
+    if (window.__ttsAudio) try { window.__ttsAudio.pause(); } catch {}
+    if (window.__ttsURL) try { URL.revokeObjectURL(window.__ttsURL); } catch {}
+
+    const r = await fetch(ELEVENLABS_STREAM_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text })
     });
-  }catch(e){ console.error("Ошибка отправки",e); }
+    if (!r.ok || !r.body) return;
+
+    const reader = r.body.getReader();
+    const chunks = [];
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      if (value && value.byteLength) chunks.push(value);
+    }
+
+    const blob = new Blob(chunks, { type: "audio/mpeg" });
+    const url = URL.createObjectURL(blob);
+    const a = new Audio(url);
+    a.playsInline = true;
+
+    window.__ttsAudio = a;
+    window.__ttsURL = url;
+
+    a.onended = () => {
+      try { URL.revokeObjectURL(url); } catch {}
+      if (isListening && recognition) recognition.start();
+    };
+
+    await a.play().catch(()=>{});
+  } catch (e) {
+    console.error("speakText error:", e?.message || e);
+  }
+}
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    if (messages.length === 0) {
+      parent.postMessage("open-widget", "*");
+      const welcomeMessage = "Здравствуйте! Я на связи. Консультант Анна.";
+      appendMessage(welcomeMessage, false);
+      messages.push({ role: "assistant", content: welcomeMessage });
+      parent.postMessage("show-notify", "*");
+    }
+  }, 10000);
 });
 </script>
+
+  <!-- Триггер для открытия формы -->
+  <a id="triggerForm" href="#popup:subscription" style="display: none;">Открыть форму</a>
 </body>
 </html>
