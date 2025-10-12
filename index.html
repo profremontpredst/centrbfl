@@ -29,93 +29,156 @@ _tmr.push({id: "3691917", type: "pageView", start: (new Date()).getTime()});
 <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3691917;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
 <!-- /Top.Mail.Ru counter -->
   <meta charset="UTF-8">
-  <title>Банкротство физических лиц</title>
+  <title>Банкротство физических лиц | Арбитражный управляющий Петрусёва Н.А.</title>
   <link rel="icon" type="image/png" href="https://i.postimg.cc/xj4FGtBg/42355013-1.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f7f9fb; color: #333; line-height: 1.5; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f7f9fb; color: #333; line-height: 1.6; }
 
+    /* Header */
     header {
-      background: linear-gradient(rgba(10,61,98,0.8), rgba(10,61,98,0.8)),
+      background: linear-gradient(rgba(10,61,98,0.85), rgba(10,61,98,0.9)),
                   url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
-      color: white; text-align: center; padding: 100px 20px;
+      color: white; text-align: center; padding: 80px 20px;
+      position: relative;
     }
-    header h1 { font-size: 42px; margin-bottom: 20px; }
-    header p { font-size: 20px; margin-bottom: 30px; }
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      text-align: left;
+    }
+    .header-text { flex: 1; }
+    .header-photo { flex: 0 0 300px; }
+    .header-photo img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    header h1 { font-size: 42px; margin-bottom: 15px; font-weight: 700; }
+    header .subtitle { font-size: 22px; margin-bottom: 25px; opacity: 0.95; }
     .btn {
-      display: inline-block; padding: 14px 28px; background: #ff6b6b;
+      display: inline-block; padding: 16px 32px; background: #ff6b6b;
       color: white; font-weight: bold; border-radius: 8px; text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(255,107,107,0.3); transition: 0.3s;
+      font-size: 18px;
     }
-    .btn:hover { background: #ff4b4b; }
+    .btn:hover { background: #ff4b4b; transform: translateY(-2px); }
 
-    .section { padding: 60px 20px; max-width: 1100px; margin: auto; }
-    .section h2 { text-align: center; font-size: 32px; margin-bottom: 40px; color: #0a3d62; }
+    .section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+    .section h2 { text-align: center; font-size: 36px; margin-bottom: 50px; color: #0a3d62; font-weight: 700; }
 
-    .features { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    /* About Specialist */
+    .specialist-container {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+    .specialist-photo { flex: 0 0 300px; }
+    .specialist-photo img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .specialist-info { flex: 1; }
+    .specialist-info h3 {
+      font-size: 28px;
+      color: #0a3d62;
+      margin-bottom: 20px;
+    }
+    .specialist-features {
+      list-style: none;
+      margin-top: 20px;
+    }
+    .specialist-features li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      position: relative;
+      padding-left: 30px;
+    }
+    .specialist-features li:before {
+      content: "✓";
+      color: #ff6b6b;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* Features */
+    .features { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; }
     .feature {
-      flex: 1 1 300px; background: white; padding: 30px;
+      flex: 1 1 300px; background: white; padding: 35px 25px;
       border-radius: 12px; text-align: center;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s;
     }
-    .feature:hover { transform: translateY(-5px); }
-    .feature img { width: 60px; margin-bottom: 15px; }
+    .feature:hover { transform: translateY(-8px); }
+    .feature img { width: 70px; margin-bottom: 20px; }
+    .feature h3 { font-size: 20px; margin-bottom: 15px; color: #0a3d62; }
 
-    .reviews { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-    .review {
-      flex: 1 1 300px; background: #fff; padding: 20px; border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1); font-style: italic;
+    /* Stages */
+    .stages { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .stage {
+      flex: 1 1 200px; background: white; padding: 25px 15px;
+      border-radius: 12px; text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
     }
-    .review strong { display: block; margin-top: 10px; font-style: normal; }
+    .stage-number {
+      width: 40px; height: 40px; background: #0a3d62; color: white;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 15px; font-weight: bold;
+    }
 
-    footer {
-      background: #0a3d62; color: #fff; text-align: center; padding: 30px;
+    /* FAQ */
+    .faq-container { max-width: 800px; margin: 0 auto; }
+    .faq-item {
+      background: white; margin-bottom: 15px; border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;
     }
-
-    /* ===== Второй блок (фон + пункты) ===== */
-    .promo-block{
-      position: relative; width: 100%;
-      background: #fff center/cover no-repeat url('https://i.imgur.com/k2Dpj2P.png');
-      border-top: 1px solid #e8e8e8; border-bottom: 1px solid #e8e8e8;
+    .faq-question {
+      padding: 20px; cursor: pointer; font-weight: 600;
+      display: flex; justify-content: space-between; align-items: center;
     }
-    .promo-inner{
-      max-width:1100px; margin:0 auto; padding: 28px 20px;
-      background: rgba(255,255,255,0.55); backdrop-filter: blur(3px);
-      border-radius: 0;
+    .faq-answer {
+      padding: 0 20px; max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
     }
-    .promo-title{
-      font-weight: 700; font-size: 20px; color: #1e2a33; line-height:1.3; margin-bottom: 10px;
-      text-align: left;
+    .faq-item.active .faq-answer {
+      padding: 0 20px 20px; max-height: 500px;
     }
-    .promo-list{ margin: 0; padding-left: 18px; color:#31424d; font-size: 15px; line-height:1.4; }
-    .promo-list li{ margin: 6px 0; }
 
     /* Chat block */
     .chat-container {
       max-width: 900px;
       margin: 40px auto;
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
-      height: 600px;
+      height: 500px;
       overflow: hidden;
+      border: 1px solid #e8e8e8;
     }
     .chat-header {
       background: #0a3d62;
       color: white;
-      padding: 12px 16px;
+      padding: 15px 20px;
       font-weight: bold;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .chat-header img {
-      width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: 0 0 36px;
+      width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: 0 0 40px;
     }
-    .chat-header .title { font-size: 14px; font-weight: 700; }
+    .chat-header .title { font-size: 16px; font-weight: 700; }
 
     .chat-messages {
       flex: 1;
@@ -123,55 +186,58 @@ _tmr.push({id: "3691917", type: "pageView", start: (new Date()).getTime()});
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      background: #f4f6f9;
+      gap: 15px;
+      background: #f8fafc;
     }
     .message {
       max-width: 80%;
-      padding: 12px 16px;
-      border-radius: 12px;
+      padding: 12px 18px;
+      border-radius: 18px;
       font-size: 14px;
-      line-height: 1.4;
+      line-height: 1.5;
     }
     .bot {
       background: #eef4f9;
       align-self: flex-start;
+      border-bottom-left-radius: 5px;
     }
     .user {
       background: #ff6b6b;
       color: white;
       align-self: flex-end;
+      border-bottom-right-radius: 5px;
     }
     .chat-suggestions {
-      padding: 10px;
+      padding: 12px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      border-top: 1px solid #ddd;
-      background: #fafafa;
+      border-top: 1px solid #e8e8e8;
+      background: #f5f7fa;
     }
     .chat-suggestions button {
-      padding: 8px 14px;
+      padding: 8px 16px;
       border: none;
       border-radius: 20px;
       background: #eef4f9;
       cursor: pointer;
       font-size: 13px;
       transition: 0.3s;
+      color: #0a3d62;
     }
     .chat-suggestions button:hover {
       background: #d6e4f0;
     }
     .chat-input {
       display: flex;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #e8e8e8;
     }
     .chat-input input {
       flex: 1;
-      padding: 14px;
+      padding: 16px;
       border: none;
       outline: none;
-      font-size: 14px;
+      font-size: 15px;
     }
     .chat-input button {
       padding: 0 20px;
@@ -183,9 +249,48 @@ _tmr.push({id: "3691917", type: "pageView", start: (new Date()).getTime()});
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: 0.3s;
     }
     .chat-input button:hover { background: #ff4b4b; }
-    .chat-input button svg { width: 18px; height: 18px; fill: white; }
+    .chat-input button svg { width: 20px; height: 20px; fill: white; }
+
+    /* Promo block */
+    .promo-block{
+      background: #0a3d62; color: white; padding: 50px 20px;
+      text-align: center;
+    }
+    .promo-inner{ max-width:1100px; margin:0 auto; }
+    .promo-title{
+      font-weight: 700; font-size: 28px; line-height:1.3; margin-bottom: 20px;
+    }
+    .promo-list{ 
+      list-style: none; max-width: 600px; margin: 0 auto;
+    }
+    .promo-list li{ 
+      margin: 15px 0; padding-left: 30px; text-align: left;
+      position: relative;
+    }
+    .promo-list li:before {
+      content: "•"; color: #ff6b6b; font-size: 24px;
+      position: absolute; left: 0; top: -2px;
+    }
+
+    footer {
+      background: #0a3d62; color: #fff; text-align: center; padding: 40px 20px;
+    }
+    .footer-contacts {
+      font-size: 20px; margin-bottom: 15px; font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content { flex-direction: column; text-align: center; }
+      .header-photo { flex: 0 0 auto; max-width: 250px; }
+      .specialist-container { flex-direction: column; }
+      .specialist-photo { flex: 0 0 auto; max-width: 250px; }
+      header h1 { font-size: 32px; }
+      .section { padding: 50px 20px; }
+    }
 
     /* Popup form */
     #leadOverlay {
@@ -195,57 +300,164 @@ _tmr.push({id: "3691917", type: "pageView", start: (new Date()).getTime()});
     #leadPopup, #leadThanks {
       display:none; position:fixed; top:50%; left:50%;
       transform:translate(-50%,-50%);
-      background:#fff; color:#333; padding:20px;
+      background:#fff; color:#333; padding:30px;
       border-radius:16px; z-index:9999;
       max-width:400px; width:90%;
-      box-shadow:0 0 20px rgba(0,0,0,0.4);
+      box-shadow:0 0 30px rgba(0,0,0,0.4);
       text-align:center;
     }
-    #leadPopup h3 { margin-bottom:15px; color:#0a3d62; }
+    #leadPopup h3 { margin-bottom:20px; color:#0a3d62; font-size:22px; }
     #leadPopup input {
-      width:100%; padding:10px; border-radius:8px;
-      border:1px solid #ccc; margin-bottom:10px;
+      width:100%; padding:12px; border-radius:8px;
+      border:1px solid #ccc; margin-bottom:15px;
+      font-size:16px;
     }
     #leadPopup button {
-      width:100%; padding:12px;
+      width:100%; padding:14px;
       border:none; border-radius:8px;
       background-color:#ff6b6b; color:#fff;
-      font-weight:bold; cursor:pointer;
+      font-weight:bold; cursor:pointer; font-size:16px;
     }
     #leadPopup button:hover { background:#ff4b4b; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Центр Банкротства физических лиц</h1>
-    <a href="#scanner" class="btn">Пройти онлайн-сканер</a>
+    <div class="header-content">
+      <div class="header-text">
+        <h1>Арбитражный управляющий<br>Петрусёва Наталья Анатольевна</h1>
+        <p class="subtitle">Процедура банкротства физических лиц с гарантией результата</p>
+        <a href="#consult" class="btn">Бесплатная консультация</a>
+      </div>
+      <div class="header-photo">
+        <img src="https://i.imgur.com/6vU2Ypa.png" alt="Петрусёва Наталья Анатольевна">
+      </div>
+    </div>
   </header>
 
-  <!-- ===== Второй блок с фоном и тезисами ===== -->
+  <!-- О специалисте -->
+  <section class="section">
+    <h2>О специалисте</h2>
+    <div class="specialist-container">
+      <div class="specialist-photo">
+        <img src="https://i.imgur.com/6vU2Ypa.png" alt="Петрусёва Наталья Анатольевна">
+      </div>
+      <div class="specialist-info">
+        <h3>Петрусёва Наталья Анатольевна</h3>
+        <p>Арбитражный управляющий с 8-летним опытом работы в сфере банкротства физических лиц. Член Саморегулируемой организации арбитражных управляющих «Центр».</p>
+        <ul class="specialist-features">
+          <li>Более 200 успешно завершенных дел о банкротстве</li>
+          <li>Специализация - физические лица и индивидуальные предприниматели</li>
+          <li>Полное сопровождение от консультации до списания долгов</li>
+          <li>Член СРО АУ «Центр»</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Преимущества -->
+  <section class="section" style="background: #f0f5fa; padding: 80px 20px;">
+    <h2>Почему выбирают нас</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="https://img.icons8.com/color/96/guarantee.png" alt="Гарантия">
+        <h3>Гарантия результата</h3>
+        <p>Полное списание долгов через процедуру банкротства в соответствии с законом</p>
+      </div>
+      <div class="feature">
+        <img src="https://img.icons8.com/color/96/expensive.png" alt="Фиксированная цена">
+        <h3>Фиксированная стоимость</h3>
+        <p>Прозрачное ценообразование без скрытых платежей и комиссий</p>
+      </div>
+      <div class="feature">
+        <img src="https://img.icons8.com/color/96/security-checked.png" alt="Конфиденциальность">
+        <h3>Полная конфиденциальность</h3>
+        <p>Ваши персональные данные защищены и не разглашаются третьим лицам</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Этапы -->
+  <section class="section">
+    <h2>Этапы процедуры банкротства</h2>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-number">1</div>
+        <h3>Консультация</h3>
+        <p>Анализ вашей ситуации и разработка стратегии</p>
+      </div>
+      <div class="stage">
+        <div class="stage-number">2</div>
+        <h3>Подготовка</h3>
+        <p>Сбор документов и подача заявления в суд</p>
+      </div>
+      <div class="stage">
+        <div class="stage-number">3</div>
+        <h3>Реализация</h3>
+        <p>Процедура банкротства под контролем арбитражного управляющего</p>
+      </div>
+      <div class="stage">
+        <div class="stage-number">4</div>
+        <h3>Завершение</h3>
+        <p>Списание долгов и получение свидетельства</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Промо-блок -->
   <section class="promo-block">
     <div class="promo-inner">
-      <div class="promo-title">Почему бесплатные юристы помогают не хуже, а иногда и лучше</div>
+      <div class="promo-title">Почему выбирают профессионального арбитражного управляющего</div>
       <ul class="promo-list">
-        <li><b>Опыт и практика.</b> Бесплатный — не значит «без квалификации».</li>
-        <li><b>24/7.</b> Доступность в любое время суток.</li>
-        <li><b>Конкретные ответы.</b> Без лишней воды и «затягивания».</li>
+        <li><b>Опыт и квалификация.</b> Более 8 лет успешной практики в банкротстве физических лиц</li>
+        <li><b>Индивидуальный подход.</b> Каждое дело рассматривается персонально с учетом всех обстоятельств</li>
+        <li><b>Юридическая защита.</b> Полное сопровождение на всех этапах процедуры банкротства</li>
+        <li><b>Результат.</b> Гарантия списания долгов в соответствии с законодательством РФ</li>
       </ul>
     </div>
   </section>
 
-  <section id="scanner" class="section">
+  <!-- FAQ -->
+  <section class="section">
+    <h2>Часто задаваемые вопросы</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">Сколько стоит процедура банкротства?<span>+</span></div>
+        <div class="faq-answer">
+          <p>Стоимость процедуры банкротства зависит от сложности вашего дела и составляет от 25 000 рублей. Точную стоимость можно узнать после бесплатной консультации.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Какие долги можно списать?<span>+</span></div>
+        <div class="faq-answer">
+          <p>Через процедуру банкротства можно списать кредиты, займы, долги по ЖКХ, микрозаймы и другие финансовые обязательства. Не списываются алименты, возмещение вреда здоровью, долги по зарплате.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Сколько длится процедура банкротства?<span>+</span></div>
+        <div class="faq-answer">
+          <p>Средний срок процедуры банкротства составляет от 6 до 10 месяцев, в зависимости от сложности дела и загруженности суда.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Консультация -->
+  <section id="consult" class="section" style="padding-top: 0;">
+    <h2>Бесплатная консультация</h2>
+    <p style="text-align: center; margin-bottom: 30px; font-size: 18px;">Получите ответы на все вопросы по процедуре банкротства</p>
 
     <!-- Chat -->
     <div class="chat-container">
       <div class="chat-header">
         <img src="https://i.imgur.com/VnE8ZUa.png" alt="Анна">
-        <div class="title">Юрист Анна</div>
+        <div class="title">Юрист-консультант Анна</div>
       </div>
       <div class="chat-messages" id="chat"></div>
       <div class="chat-suggestions">
-        <button onclick="quickSend('Перезвоните мне')">перезвоните мне</button>
-        <button onclick="quickSend('Где вы находитесь?')">где вы находитесь</button>
-        <button onclick="quickSend('Вопрос по банкротству')">вопрос по банкротству</button>
+        <button onclick="quickSend('Хочу узнать стоимость банкротства')">Узнать стоимость</button>
+        <button onclick="quickSend('Какие документы нужны?')">Необходимые документы</button>
+        <button onclick="quickSend('Могу ли я списать долги?')">Проверка возможности</button>
       </div>
       <div class="chat-input">
         <button onclick="startVoice()" title="Говорить">
@@ -258,21 +470,23 @@ _tmr.push({id: "3691917", type: "pageView", start: (new Date()).getTime()});
   </section>
 
   <footer>
-    © 2025. Центр банкротства. Бесплатная консультация: 8-800-222-05-42
+    <div class="footer-contacts">8 (800) 222-05-42</div>
+    <p>Бесплатная горячая линия | Круглосуточно</p>
+    <p style="margin-top: 20px;">© 2025. Арбитражный управляющий Петрусёва Наталья Анатольевна.<br>Член СРО АУ «Центр»</p>
   </footer>
 
   <!-- Overlay + Form + Thanks -->
   <div id="leadOverlay"></div>
 
   <div id="leadPopup">
-    <h3 id="leadTitle">Оставьте заявку</h3>
+    <h3 id="leadTitle">Оставьте заявку на консультацию</h3>
     <input id="leadName" placeholder="Ваше имя">
     <input id="leadPhone" placeholder="+7 (___) ___-__-__">
-    <button id="leadSubmitBtn">Оставить заявку</button>
+    <button id="leadSubmitBtn">Получить консультацию</button>
   </div>
 
   <div id="leadThanks">
-    <div>✅ Спасибо за заявку, скоро свяжемся с вами</div>
+    <div style="font-size: 18px; padding: 20px;">✅ Спасибо за заявку!<br>Мы свяжемся с вами в течение 15 минут</div>
   </div>
 
 <script src="https://unpkg.com/imask"></script>
@@ -319,7 +533,7 @@ _tmr.push({id: "3691917", type: "pageView", start: (new Date()).getTime()});
       // ловим [openLeadForm] или triggerForm
       if(/\[openLeadForm\]/i.test(reply) || data.triggerForm){
         const clean = reply.replace(/\[openLeadForm\]/gi,"").trim();
-        document.getElementById("leadTitle").innerText = clean || "Оставьте заявку";
+        document.getElementById("leadTitle").innerText = clean || "Оставьте заявку на консультацию";
         openLeadForm();
         reply = clean;
       }
@@ -358,7 +572,7 @@ _tmr.push({id: "3691917", type: "pageView", start: (new Date()).getTime()});
   window.addEventListener("load",()=>{
     setTimeout(()=>{
       if(messages.length===0){
-        appendMessage("Здравствуйте! Какой у вас вопрос?", false);
+        appendMessage("Здравствуйте! Я юрист-консультант Анна. Готова ответить на все ваши вопросы по процедуре банкротства физических лиц. Чем могу помочь?", false);
       }
     },1000);
   });
@@ -404,6 +618,15 @@ _tmr.push({id: "3691917", type: "pageView", start: (new Date()).getTime()});
         body:JSON.stringify(payload)
       });
     }catch(e){ console.error("Ошибка отправки",e); }
+  });
+
+  // FAQ functionality
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      item.classList.toggle('active');
+      question.querySelector('span').textContent = item.classList.contains('active') ? '−' : '+';
+    });
   });
 </script>
 </body>
