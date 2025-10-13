@@ -530,6 +530,22 @@
 
       appendMessage(reply,false);
       messages.push({role:"assistant", content:reply});
+      // Проверка на [nextMessage]
+if (reply.includes("[nextMessage]")) {
+  const parts = reply.split("[nextMessage]").map(t => t.trim()).filter(Boolean);
+  if (parts.length > 1) {
+    // заменяем первый ответ на первую часть
+    const first = parts[0];
+    const second = parts[1];
+    // обновляем сообщение (чтобы не дублировалось)
+    chatBox.lastChild.textContent = first;
+    // отправляем второе через паузу (2 секунды)
+    setTimeout(() => {
+      appendMessage(second, false);
+      messages.push({ role: "assistant", content: second });
+    }, 2000);
+  }
+}
     } catch(e){
       appendMessage("Ошибка соединения",false);
     }
