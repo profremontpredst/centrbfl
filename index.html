@@ -360,44 +360,6 @@
       </div>
     </div>
   </section>
-  <!-- === УМНЫЙ КВИЗ АНТИБОТ === -->
-<section id="quiz-section" class="section" style="background:#f7fafc;">
-  <h2>Подходит ли вам процедура банкротства?</h2>
-  <form id="quizForm" class="quiz-form">
-    <div class="quiz-question">
-      <p>1. Какая у вас сумма долга?</p>
-      <label><input type="radio" name="debt" value="до 300 тыс."> До 300 тыс.</label>
-      <label><input type="radio" name="debt" value="300–500 тыс."> От 300 до 500 тыс.</label>
-      <label><input type="radio" name="debt" value="более 500 тыс."> Более 500 тыс.</label>
-    </div>
-
-    <div class="quiz-question">
-      <p>2. Есть ли просрочки по платежам?</p>
-      <label><input type="radio" name="delay" value="нет"> Нет</label>
-      <label><input type="radio" name="delay" value="менее 3 мес."> Менее 3 мес.</label>
-      <label><input type="radio" name="delay" value="более 3 мес."> Более 3 мес.</label>
-    </div>
-
-    <div class="quiz-question">
-      <p>3. Работаете официально?</p>
-      <label><input type="radio" name="job" value="да"> Да</label>
-      <label><input type="radio" name="job" value="нет"> Нет</label>
-    </div>
-
-    <div class="quiz-question">
-      <p>4. Есть ли имущество, кроме единственного жилья?</p>
-      <label><input type="radio" name="property" value="нет"> Нет</label>
-      <label><input type="radio" name="property" value="есть, хочу сохранить"> Есть, хочу сохранить</label>
-      <label><input type="radio" name="property" value="готов продать"> Готов(а) продать</label>
-    </div>
-
-    <textarea id="quizComment" placeholder="Комментарий (необязательно)" style="width:100%;padding:10px;margin-top:15px;border-radius:8px;border:1px solid #ccc;font-size:15px;"></textarea>
-
-    <button type="button" id="quizSubmitBtn" class="btn" style="margin-top:25px;">Проверить результат</button>
-  </form>
-
-  <div id="quizResult" style="display:none;margin-top:30px;text-align:center;font-size:18px;"></div>
-</section>
 
   <!-- Преимущества -->
   <section class="section" style="background: #f0f5fa; padding: 80px 20px;">
@@ -721,72 +683,6 @@ async function sendMessage() {
       item.classList.toggle('active');
       question.querySelector('span').textContent = item.classList.contains('active') ? '−' : '+';
     });
-  });
-</script>
-  <script>
-  const QUIZ_URL = "https://openai-gpt-proxy-mcnj.onrender.com/quiz";
-
-  const quizForm = document.getElementById("quizForm");
-  const quizBtn = document.getElementById("quizSubmitBtn");
-  const quizResult = document.getElementById("quizResult");
-
-  let lastClickTime = Date.now();
-  const quizEvents = [];
-
-  quizForm.addEventListener("click", e => {
-    if (e.target.tagName === "INPUT") {
-      const now = Date.now();
-      quizEvents.push({
-        type: "click",
-        label: e.target.name + ":" + e.target.value,
-        intervalMs: now - lastClickTime
-      });
-      lastClickTime = now;
-    }
-  });
-
-  quizBtn.addEventListener("click", async () => {
-    const formData = new FormData(quizForm);
-    const answers = {};
-    for (const [k, v] of formData.entries()) answers[k] = v;
-    const freeText = document.getElementById("quizComment").value.trim();
-
-    quizBtn.disabled = true;
-    quizBtn.textContent = "Проверяем...";
-    quizResult.style.display = "none";
-
-    const payload = {
-      userId: localStorage.getItem("userId") || "anon_" + Math.random().toString(36).slice(2),
-      events: quizEvents,
-      freeText,
-      durationMs: Date.now() - lastClickTime
-    };
-
-    try {
-      const res = await fetch(QUIZ_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      const data = await res.json();
-
-      if (data.action === "allow") {
-        quizResult.innerHTML = "✅ Вы можете пройти процедуру банкротства. Откроется форма для консультации.";
-        openLeadForm();
-      } else if (data.action === "deny") {
-        quizResult.innerHTML = "🚫 Похоже, вы не подходите под критерии банкротства, но можно обсудить другие варианты.";
-      } else {
-        quizResult.innerHTML = "⚠️ Пожалуйста, уточните детали — специалист свяжется при необходимости.";
-      }
-
-      quizResult.style.display = "block";
-    } catch (e) {
-      quizResult.textContent = "Ошибка проверки, попробуйте позже.";
-      quizResult.style.display = "block";
-    }
-
-    quizBtn.disabled = false;
-    quizBtn.textContent = "Проверить результат";
   });
 </script>
 </body>
