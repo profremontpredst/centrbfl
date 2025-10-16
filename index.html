@@ -727,5 +727,35 @@ async function sendMessage() {
     });
   });
 </script>
+  <script>
+const chatContainer = document.querySelector('.chat-container');
+const consultSection = document.querySelector('#consult h2');
+const consultSubtitle = document.querySelector('#consult p');
+const suggestions = document.querySelector('.chat-suggestions');
+const inputField = document.getElementById('chatInput');
+
+inputField.addEventListener('focus', () => {
+  if (window.innerWidth < 768) {
+    consultSection.style.display = 'none';
+    consultSubtitle.style.display = 'none';
+    chatContainer.style.position = 'fixed';
+    chatContainer.style.top = '0';
+    chatContainer.style.left = '0';
+    chatContainer.style.width = '100%';
+    chatContainer.style.height = '100vh';
+    chatContainer.style.borderRadius = '0';
+    suggestions.style.display = 'flex';
+  }
+});
+
+inputField.addEventListener('blur', () => {
+  if (window.innerWidth < 768) {
+    consultSection.style.display = '';
+    consultSubtitle.style.display = '';
+    chatContainer.style = '';
+    suggestions.style.display = '';
+  }
+});
+</script>
 </body>
 </html>
