@@ -325,6 +325,79 @@
   0%,80%,100%{opacity:0.3;}
   40%{opacity:1;}
 }
+    /* === FIX MOBILE CHAT FULLSCREEN INPUT === */
+@media (max-width: 768px) {
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 160px);
+    margin-bottom: 0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 70px;
+    scroll-behavior: smooth;
+  }
+
+  .chat-input {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    z-index: 20;
+  }
+
+  .chat-input input {
+    flex: 1;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+  }
+
+  .chat-input button {
+    padding: 0 18px;
+    min-width: 80px;
+    height: 52px;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #ff6b6b;
+    color: #fff;
+  }
+
+  /* при фокусе поле ввода — чат становится fullscreen */
+  .chat-container.input-focused {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    z-index: 9999;
+    background: #fff;
+  }
+
+  .chat-container.input-focused .chat-header {
+    display: none;
+  }
+
+  .chat-container.input-focused .chat-suggestions {
+    display: none;
+  }
+
+  body {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
   </style>
 </head>
 <body>
@@ -684,6 +757,22 @@ async function sendMessage() {
       question.querySelector('span').textContent = item.classList.contains('active') ? '−' : '+';
     });
   });
+  // === FULLSCREEN CHAT ON MOBILE FOCUS ===
+const chatContainer = document.querySelector('.chat-container');
+const chatInputField = document.getElementById('chatInput');
+
+chatInputField.addEventListener('focus', () => {
+  if (window.innerWidth < 768) {
+    chatContainer.classList.add('input-focused');
+    setTimeout(() => chatBox.scrollTop = chatBox.scrollHeight, 300);
+  }
+});
+
+chatInputField.addEventListener('blur', () => {
+  if (window.innerWidth < 768) {
+    chatContainer.classList.remove('input-focused');
+  }
+});
 </script>
 </body>
 </html>
