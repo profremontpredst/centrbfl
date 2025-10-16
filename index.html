@@ -272,15 +272,57 @@
       font-size: 20px; margin-bottom: 15px; font-weight: 600;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header-content { flex-direction: column; text-align: center; }
-      .header-photo { flex: 0 0 auto; max-width: 250px; }
-      .specialist-container { flex-direction: column; }
-      .specialist-photo { flex: 0 0 auto; max-width: 250px; }
-      header h1 { font-size: 32px; }
-      .section { padding: 50px 20px; }
-    }
+    /* === MOBILE CHAT FIX === */
+@media (max-width: 768px) {
+  #consult {
+    padding: 0 !important;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+    display: none;
+  }
+  
+  #consult:target {
+    display: block;
+  }
+  
+  .chat-container {
+    margin: 0;
+    border-radius: 0;
+    height: 100vh;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-messages {
+    flex: 1;
+    padding-bottom: 120px; /* Место для поля ввода */
+  }
+  
+  .chat-input {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1001;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-content { flex-direction: column; text-align: center; }
+  .header-photo { flex: 0 0 auto; max-width: 250px; }
+  .specialist-container { flex-direction: column; }
+  .specialist-photo { flex: 0 0 auto; max-width: 250px; }
+  header h1 { font-size: 32px; }
+  .section { padding: 50px 20px; }
+}
 
     /* Popup form */
     #leadOverlay {
