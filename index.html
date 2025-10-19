@@ -368,7 +368,7 @@
   40%{opacity:1;}
 }
     /* === КВИЗ FLEXBE СТИЛЬ === */
-.quiz-wrapper * { box-sizing: border-box; font-family: inherit; }
+.quiz-wrapper * { all: unset; display: revert; box-sizing: border-box; }
 
 .quiz-wrapper{
   min-height:100svh; display:flex; align-items:center; justify-content:center;
@@ -884,10 +884,8 @@ inputField.addEventListener('blur', () => {
   }
 });
 </script>
-  <script src="https://unpkg.com/imask"></script>
-<script>
+  <script>
 const QUIZ_URL = "https://openai-gpt-proxy-mcnj.onrender.com/quiz";
-const LEAD_URL = "https://openai-gpt-proxy-mcnj.onrender.com/lead";
 
 let step = 1;
 const total = 5;
@@ -933,54 +931,30 @@ $("#nextBtn").onclick=async()=>{
   if(step===4){showStep(++step);}
   else{
     const name=$("#quizName").value.trim();
-    const phoneInput=$("#quizPhone");
-    let phoneRaw=phoneInput.value.replace(/\D/g,"");
-    if(phoneRaw.length<10){alert("Введите корректный номер");return;}
-    const phone="+7"+phoneRaw.slice(-10);
+    let phone=$("#quizPhone").value.replace(/[^0-9+]/g,"");
+    if(phone&&!phone.startsWith("+7"))phone="+7"+phone.replace(/^8/,"").slice(-10);
+    if(!name||phone.length<12)return alert("Введите корректные данные");
 
     $("#nextBtn").disabled=true;$("#nextBtn").textContent="Отправляем…";
 
     const userId=localStorage.getItem("userId")||("user_"+Math.random().toString(36).slice(2,10));
     localStorage.setItem("userId",userId);
     const payload={userId,answers,events,phone,durationMs:Date.now()-events[0]?.timestamp||0};
-
     try{
       const r=await fetch(QUIZ_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
       const d=await r.json();
-      const verdictBox=$("#summaryBox");
-      verdictBox.style.display="block";
-      let verdict="";
-      if(d.action==="deny"){
-        verdict="⛔️ Похоже, это бот. Заявка не будет отправлена.";
-        // только в таблицу с пометкой ЧС
-        await fetch(LEAD_URL,{method:"POST",headers:{"Content-Type":"application/json"},
-          body:JSON.stringify({name:"Bot detected",phone,userId,
-            messages:[{role:"user",content:"BOT BLACKLISTED"}],
-            utm_source:"quiz",utm_content:"blacklisted"})});
-      } else {
-        verdict=d.action==="allow"?"✅ Подходит, юрист свяжется":
-                "⚠️ Нужна проверка, заявка передана";
-        await fetch(LEAD_URL,{method:"POST",headers:{"Content-Type":"application/json"},
-          body:JSON.stringify({
-            name,phone,userId,
-            messages:[{role:"user",content:JSON.stringify(answers)}],
-            utm_source:"quiz",utm_content:d.action
-          })});
-      }
-      verdictBox.textContent=verdict;
+      const verdict=d.action==="allow"?"✅ Подходит, юрист свяжется":
+        d.action==="challenge"?"⚠️ Нужна проверка":"⛔️ Похоже, это бот";
+      $("#summaryBox").style.display="block";
+      $("#summaryBox").textContent=verdict;
+      await fetch(LEAD_URL,{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({name,phone,userId,messages:[{role:"user",content:JSON.stringify(answers)}]})});
       $("#nextBtn").textContent="Готово ✔";
-    }catch(e){
-      alert("Ошибка соединения");
-      $("#nextBtn").textContent="Отправить";
-    }finally{
-      $("#nextBtn").disabled=false;
-    }
+    }catch(e){alert("Ошибка соединения");$("#nextBtn").textContent="Отправить";}
+    finally{$("#nextBtn").disabled=false;}
   }
 };
 showStep(1);
-
-// === Маска телефона ===
-IMask(document.getElementById("quizPhone"), { mask: "+{7} (000) 000-00-00" });
 </script>
 </body>
 </html>
