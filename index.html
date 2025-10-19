@@ -956,5 +956,25 @@ $("#nextBtn").onclick=async()=>{
 };
 showStep(1);
 </script>
+  <!-- === Маска телефона для квиза === -->
+<script src="https://unpkg.com/imask"></script>
+<script>
+const phoneInput = document.getElementById("quizPhone");
+const mask = IMask(phoneInput, {
+  mask: '+{7} (000) 000-00-00',
+  lazy: false, // сразу видно +7
+  placeholderChar: '_'
+});
+
+phoneInput.addEventListener('input', () => {
+  const digits = phoneInput.value.replace(/\D/g, '');
+  // если первая цифра не 9 — заменяем на 9
+  if (digits[1] && digits[1] !== '9') {
+    const corrected = '+7 (9' + digits.slice(2, 11).padEnd(9, '_');
+    phoneInput.value = corrected.replace(/_/g, '');
+    mask.updateValue();
+  }
+});
+</script>
 </body>
 </html>
