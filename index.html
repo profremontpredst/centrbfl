@@ -367,6 +367,14 @@
   0%,80%,100%{opacity:0.3;}
   40%{opacity:1;}
 }
+    .quiz-container {max-width:420px;margin:40px auto;padding:20px;background:#fff;border-radius:16px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+.quiz-step {display:none;text-align:center;}
+.quiz-step.active {display:block;animation:fade 0.4s;}
+.quiz-btn {display:block;width:100%;margin:8px 0;padding:12px;border:none;border-radius:10px;background:#f2f2f2;cursor:pointer;font-size:16px;transition:.2s;}
+.quiz-btn:hover {background:#e2e2e2;}
+#quizPhone {width:100%;padding:10px;border-radius:10px;border:1px solid #ccc;margin-top:10px;font-size:16px;text-align:center;}
+#quizSubmit {margin-top:15px;padding:12px 25px;background:#007bff;color:#fff;border:none;border-radius:10px;cursor:pointer;}
+@keyframes fade {from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
   </style>
 </head>
 <body>
@@ -402,6 +410,42 @@
       </div>
     </div>
   </section>
+  <!-- === УМНЫЙ КВИЗ АНТИБОТ === -->
+<section id="quiz-section" class="quiz-container">
+  <div class="quiz-step active" data-step="1">
+    <h3>Какая у вас сумма долга?</h3>
+    <button class="quiz-btn" data-answer="до 300 тыс.">До 300 тыс.</button>
+    <button class="quiz-btn" data-answer="300–500 тыс.">300–500 тыс.</button>
+    <button class="quiz-btn" data-answer="более 500 тыс.">Более 500 тыс.</button>
+  </div>
+
+  <div class="quiz-step" data-step="2">
+    <h3>Есть ли просрочки?</h3>
+    <button class="quiz-btn" data-answer="нет">Нет</button>
+    <button class="quiz-btn" data-answer="менее 3 мес.">Менее 3 мес.</button>
+    <button class="quiz-btn" data-answer="более 3 мес.">Более 3 мес.</button>
+  </div>
+
+  <div class="quiz-step" data-step="3">
+    <h3>Работаете официально?</h3>
+    <button class="quiz-btn" data-answer="да">Да</button>
+    <button class="quiz-btn" data-answer="нет">Нет</button>
+  </div>
+
+  <div class="quiz-step" data-step="4">
+    <h3>Есть ли имущество кроме жилья?</h3>
+    <button class="quiz-btn" data-answer="нет">Нет</button>
+    <button class="quiz-btn" data-answer="есть, хочу сохранить">Есть, хочу сохранить</button>
+    <button class="quiz-btn" data-answer="есть, готов продать">Есть, готов продать</button>
+  </div>
+
+  <div class="quiz-step" data-step="5">
+    <h3>Оставьте номер, чтобы узнать, подходит ли вам банкротство</h3>
+    <input type="tel" id="quizPhone" placeholder="+7 (___) ___-__-__" />
+    <button id="quizSubmit">Отправить</button>
+    <p id="quizStatus"></p>
+  </div>
+</section>
 
   <!-- Преимущества -->
   <section class="section" style="background: #f0f5fa; padding: 80px 20px;">
@@ -756,6 +800,41 @@ inputField.addEventListener('blur', () => {
     suggestions.style.display = '';
   }
 });
+</script>
+  <script>
+const steps = document.querySelectorAll(".quiz-step");
+let step = 0, answers = {}, events = [], last = Date.now();
+
+function nextStep() {
+  steps[step].classList.remove("active");
+  step++;
+  if (step < steps.length) steps[step].classList.add("active");
+}
+
+document.querySelectorAll(".quiz-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    const now=Date.now(), interval=now-last; last=now;
+    events.push({type:"click", label:btn.textContent, intervalMs:interval});
+    const q=steps[step].querySelector("h3").textContent;
+    answers[q]=btn.textContent;
+    nextStep();
+  };
+});
+
+document.getElementById("quizSubmit").onclick=async()=>{
+  const phone=document.getElementById("quizPhone").value.trim();
+  const duration=Date.now()-events[0]?.timeStart||0;
+  const res=await fetch("/quiz",{method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({userId:"quiz_"+Date.now(),answers,events,phone,durationMs:duration})
+  });
+  const data=await res.json();
+  document.getElementById("quizStatus").textContent =
+    data.action==="allow"
+      ? "✅ Заявка принята, скоро свяжется юрист"
+      : data.action==="deny"
+      ? "⛔️ Похоже, это бот. Доступ закрыт."
+      : "⚠️ Проверка пройдена частично, заявка отправлена на ручную модерацию.";
+};
 </script>
 </body>
 </html>
