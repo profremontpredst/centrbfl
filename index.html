@@ -502,20 +502,22 @@ header .btn:hover {
         </div>
       </div>
 
-      <div class="step" data-step="5">
-        <div class="q">5. Оставьте контакт для результата</div>
-        <div class="lead" id="leadForm">
-          <div class="field">
-            <label>Ваше имя</label>
-            <input id="quizName" class="input" placeholder="Иван">
-          </div>
-          <div class="field">
-            <label>Телефон</label>
-            <input id="quizPhone" class="input" placeholder="+7 900 000-00-00">
-          </div>
-        </div>
-        <div class="result" id="summaryBox" style="display:none;"></div>
-      </div>
+     <div class="step" data-step="5">
+  <div class="q">5. Оставьте контакт для результата</div>
+  <div class="lead" id="leadForm">
+    <div class="field">
+      <label>Ваше имя</label>
+      <input id="quizName" class="input" placeholder="Иван">
+    </div>
+    <div class="field">
+      <label>Телефон</label>
+      <input id="quizPhone" class="input" placeholder="+7 900 000-00-00">
+    </div>
+    <!-- HONEYPOT ПОЛЕ (скрытое) -->
+    <input type="text" id="quizHoneypot" style="display: none !important; opacity: 0; position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
+  </div>
+  <div class="result" id="summaryBox" style="display:none;"></div>
+</div>
 
       <div class="controls">
         <button class="btn btn--ghost" id="prevBtn" disabled>← Назад</button>
@@ -932,6 +934,7 @@ $("#nextBtn").onclick=async()=>{
   else{
     const name=$("#quizName").value.trim();
     let phone=$("#quizPhone").value.replace(/[^0-9+]/g,"");
+    const honeypot=$("#quizHoneypot").value; // honeypot значение
     if(phone&&!phone.startsWith("+7"))phone="+7"+phone.replace(/^8/,"").slice(-10);
     if(!name||phone.length<12)return alert("Введите корректные данные");
 
@@ -939,16 +942,33 @@ $("#nextBtn").onclick=async()=>{
 
     const userId=localStorage.getItem("userId")||("user_"+Math.random().toString(36).slice(2,10));
     localStorage.setItem("userId",userId);
-    const payload={userId,answers,events,phone,durationMs:Date.now()-events[0]?.timestamp||0};
+    
+    // ОТПРАВКА НА /quiz С HONEYPOT
+    const payload={userId,answers,events,phone,honeypot,durationMs:Date.now()-events[0]?.timestamp||0};
     try{
       const r=await fetch(QUIZ_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
       const d=await r.json();
+      
+      // ПОЛУЧАЕМ ВЕРДИКТ ОТ АНТИБОТА
       const verdict=d.action==="allow"?"✅ Подходит, юрист свяжется":
         d.action==="challenge"?"⚠️ Нужна проверка":"⛔️ Похоже, это бот";
       $("#summaryBox").style.display="block";
       $("#summaryBox").textContent=verdict;
-      await fetch(LEAD_URL,{method:"POST",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({name,phone,userId,messages:[{role:"user",content:JSON.stringify(answers)}]})});
+      
+      // ЕСЛИ НЕ БОТ - ОТПРАВЛЯЕМ В /lead
+      if(d.action !== "deny") {
+        const answersSummary = Object.entries(answers).map(([q,a]) => `${q}: ${a}`).join("; ");
+        await fetch(LEAD_URL,{method:"POST",headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({
+            name,
+            phone,
+            userId,
+            source: "quiz",
+            no_summary: true,
+            answersSummary: answersSummary,
+            messages: []
+          })});
+      }
       $("#nextBtn").textContent="Готово ✔";
     }catch(e){alert("Ошибка соединения");$("#nextBtn").textContent="Отправить";}
     finally{$("#nextBtn").disabled=false;}
@@ -974,6 +994,10 @@ phoneInput.addEventListener('input', () => {
     phoneInput.value = corrected.replace(/_/g, '');
     mask.updateValue();
   }
+});
+  // === ДЕТЕКТОР PASTE ДЛЯ АНТИБОТА ===
+phoneInput.addEventListener('paste', (e) => {
+  pushEvent("paste", "phone");
 });
 </script>
 </body>
