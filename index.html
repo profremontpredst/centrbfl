@@ -367,14 +367,51 @@
   0%,80%,100%{opacity:0.3;}
   40%{opacity:1;}
 }
-    .quiz-container {max-width:420px;margin:40px auto;padding:20px;background:#fff;border-radius:16px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-.quiz-step {display:none;text-align:center;}
-.quiz-step.active {display:block;animation:fade 0.4s;}
-.quiz-btn {display:block;width:100%;margin:8px 0;padding:12px;border:none;border-radius:10px;background:#f2f2f2;cursor:pointer;font-size:16px;transition:.2s;}
-.quiz-btn:hover {background:#e2e2e2;}
-#quizPhone {width:100%;padding:10px;border-radius:10px;border:1px solid #ccc;margin-top:10px;font-size:16px;text-align:center;}
-#quizSubmit {margin-top:15px;padding:12px 25px;background:#007bff;color:#fff;border:none;border-radius:10px;cursor:pointer;}
-@keyframes fade {from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+    /* === КВИЗ FLEXBE СТИЛЬ === */
+.quiz-wrapper * { all: unset; display: revert; box-sizing: border-box; }
+
+.quiz-wrapper{
+  min-height:100svh; display:flex; align-items:center; justify-content:center;
+  padding:24px; background:linear-gradient(180deg,#f6f9fc 0%,#eef3f8 100%);
+}
+.quiz{
+  width:min(880px,96vw); background:#fff; border-radius:20px;
+  box-shadow:0 20px 60px rgba(10,61,98,.15); overflow:hidden;
+  display:grid; grid-template-columns:1fr;
+}
+.quiz__header{
+  background:#0a3d62; color:#fff; padding:18px 22px; display:flex; align-items:center; gap:12px;
+}
+.quiz__logo{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-weight:700;}
+.quiz__title{font-weight:800;}
+.quiz__progress{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:13px;opacity:.9;}
+.bar{width:160px;height:8px;border-radius:999px;background:rgba(255,255,255,.25);overflow:hidden;}
+.bar>span{display:block;height:100%;background:#fff;width:0%}
+.quiz__body{padding:28px 28px 22px;}
+.step{display:none;animation:fade .35s ease;}
+.step.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.q{font-size:22px;font-weight:800;color:#0a3d62;margin-bottom:16px;}
+.options{display:grid;gap:12px;grid-template-columns:repeat(3,1fr);}
+.btn-opt{border:1px solid #e7eef7;border-radius:14px;padding:16px 14px;background:#f8fbff;cursor:pointer;text-align:center;transition:.2s;font-weight:600;}
+.btn-opt:hover{transform:translateY(-1px);background:#f0f6ff;}
+.btn-opt.active{outline:2px solid #0a3d62;background:#e8f3ff;}
+.controls{display:flex;gap:10px;justify-content:space-between;margin-top:22px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:12px;border:1px solid #e7eef7;background:#fff;cursor:pointer;transition:.2s;font-weight:700;}
+.btn--primary{background:#ff6b6b;color:#fff;border-color:transparent;}
+.btn--primary:hover{filter:brightness(.98);transform:translateY(-1px);}
+.muted{color:#6b7a90;font-size:13px;margin-top:6px;}
+.lead{display:grid;gap:12px;grid-template-columns:1fr 1fr;}
+.field{display:grid;gap:8px;}
+.input{padding:14px 12px;border-radius:12px;border:1px solid #e7eef7;font-size:16px;background:#f9fbfd;}
+.result{border:1px dashed #e7eef7;padding:14px;border-radius:12px;background:#fbfdff;margin-top:10px;font-size:14px;}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-size:13px;font-weight:700;}
+.ok{background:#e9f7f0;color:#18a957;}
+.warn{background:#fff6e5;color:#996b00;}
+.deny{background:#ffeaea;color:#d9534f;}
+.footer{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #e7eef7;background:#fcfdff;}
+.hint{font-size:12px;color:#6b7a90}
+@media(max-width:680px){.options{grid-template-columns:1fr}.lead{grid-template-columns:1fr}.quiz__header{flex-wrap:wrap;gap:8px}.quiz__progress{width:100%}.bar{flex:1}}
   </style>
 </head>
 <body>
@@ -410,42 +447,80 @@
       </div>
     </div>
   </section>
-  <!-- === УМНЫЙ КВИЗ АНТИБОТ === -->
-<section id="quiz-section" class="quiz-container">
-  <div class="quiz-step active" data-step="1">
-    <h3>Какая у вас сумма долга?</h3>
-    <button class="quiz-btn" data-answer="до 300 тыс.">До 300 тыс.</button>
-    <button class="quiz-btn" data-answer="300–500 тыс.">300–500 тыс.</button>
-    <button class="quiz-btn" data-answer="более 500 тыс.">Более 500 тыс.</button>
-  </div>
 
-  <div class="quiz-step" data-step="2">
-    <h3>Есть ли просрочки?</h3>
-    <button class="quiz-btn" data-answer="нет">Нет</button>
-    <button class="quiz-btn" data-answer="менее 3 мес.">Менее 3 мес.</button>
-    <button class="quiz-btn" data-answer="более 3 мес.">Более 3 мес.</button>
-  </div>
+  <div class="quiz-wrapper">
+  <div class="quiz" id="quiz">
+    <div class="quiz__header">
+      <div class="quiz__logo">AU</div>
+      <div class="quiz__title">Проверка на банкротство</div>
+      <div class="quiz__progress">
+        <span id="pText">1 / 5</span>
+        <div class="bar"><span id="pBar"></span></div>
+      </div>
+    </div>
+    <div class="quiz__body">
+      <div class="step active" data-step="1">
+        <div class="q">1. Какая у вас сумма долга?</div>
+        <div class="options">
+          <button class="btn-opt" data-name="debt" data-value="до 300 тыс.">До 300 тыс.</button>
+          <button class="btn-opt" data-name="debt" data-value="300–500 тыс.">300–500 тыс.</button>
+          <button class="btn-opt" data-name="debt" data-value="более 500 тыс.">Более 500 тыс.</button>
+        </div>
+      </div>
 
-  <div class="quiz-step" data-step="3">
-    <h3>Работаете официально?</h3>
-    <button class="quiz-btn" data-answer="да">Да</button>
-    <button class="quiz-btn" data-answer="нет">Нет</button>
-  </div>
+      <div class="step" data-step="2">
+        <div class="q">2. Есть ли просрочки?</div>
+        <div class="options">
+          <button class="btn-opt" data-name="delay" data-value="нет">Нет</button>
+          <button class="btn-opt" data-name="delay" data-value="менее 3 мес.">Менее 3 мес.</button>
+          <button class="btn-opt" data-name="delay" data-value="более 3 мес.">Более 3 мес.</button>
+        </div>
+      </div>
 
-  <div class="quiz-step" data-step="4">
-    <h3>Есть ли имущество кроме жилья?</h3>
-    <button class="quiz-btn" data-answer="нет">Нет</button>
-    <button class="quiz-btn" data-answer="есть, хочу сохранить">Есть, хочу сохранить</button>
-    <button class="quiz-btn" data-answer="есть, готов продать">Есть, готов продать</button>
-  </div>
+      <div class="step" data-step="3">
+        <div class="q">3. Работаете официально?</div>
+        <div class="options">
+          <button class="btn-opt" data-name="job" data-value="да">Да</button>
+          <button class="btn-opt" data-name="job" data-value="нет">Нет</button>
+        </div>
+      </div>
 
-  <div class="quiz-step" data-step="5">
-    <h3>Оставьте номер, чтобы узнать, подходит ли вам банкротство</h3>
-    <input type="tel" id="quizPhone" placeholder="+7 (___) ___-__-__" />
-    <button id="quizSubmit">Отправить</button>
-    <p id="quizStatus"></p>
+      <div class="step" data-step="4">
+        <div class="q">4. Есть ли имущество кроме жилья?</div>
+        <div class="options">
+          <button class="btn-opt" data-name="property" data-value="нет">Нет</button>
+          <button class="btn-opt" data-name="property" data-value="есть, хочу сохранить">Есть, хочу сохранить</button>
+          <button class="btn-opt" data-name="property" data-value="готов продать">Готов продать</button>
+        </div>
+      </div>
+
+      <div class="step" data-step="5">
+        <div class="q">5. Оставьте контакт для результата</div>
+        <div class="lead" id="leadForm">
+          <div class="field">
+            <label>Ваше имя</label>
+            <input id="leadName" class="input" placeholder="Иван">
+          </div>
+          <div class="field">
+            <label>Телефон</label>
+            <input id="leadPhone" class="input" placeholder="+7 900 000-00-00">
+          </div>
+        </div>
+        <div class="result" id="summaryBox" style="display:none;"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn btn--ghost" id="prevBtn" disabled>← Назад</button>
+        <button class="btn btn--primary" id="nextBtn">Далее →</button>
+      </div>
+      <div class="muted">Ответьте на 5 вопросов, чтобы проверить возможность банкротства</div>
+    </div>
+    <div class="footer">
+      <div class="hint">Антибот включён • Поведение анализируется</div>
+      <div class="hint" id="status">Шаг 1 из 5</div>
+    </div>
   </div>
-</section>
+</div>
 
   <!-- Преимущества -->
   <section class="section" style="background: #f0f5fa; padding: 80px 20px;">
@@ -802,39 +877,77 @@ inputField.addEventListener('blur', () => {
 });
 </script>
   <script>
-const steps = document.querySelectorAll(".quiz-step");
-let step = 0, answers = {}, events = [], last = Date.now();
+const QUIZ_URL = "https://openai-gpt-proxy-mcnj.onrender.com/quiz";
+const LEAD_URL = "https://openai-gpt-proxy-mcnj.onrender.com/lead";
 
-function nextStep() {
-  steps[step].classList.remove("active");
-  step++;
-  if (step < steps.length) steps[step].classList.add("active");
+let step = 1;
+const total = 5;
+const answers = {};
+const events = [];
+let last = Date.now();
+
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const steps = $$(".step");
+const pText = $("#pText");
+const pBar = $("#pBar");
+const status = $("#status");
+
+function showStep(n){
+  steps.forEach(s=>s.classList.remove("active"));
+  steps[n-1].classList.add("active");
+  pText.textContent = n+" / "+total;
+  pBar.style.width = ((n-1)/(total-1))*100+"%";
+  status.textContent = "Шаг "+n+" из "+total;
+  $("#prevBtn").disabled = n===1;
+  $("#nextBtn").textContent = n<total ? "Далее →" : "Отправить";
+}
+function pushEvent(type,label){
+  const now=Date.now();
+  events.push({type,label,intervalMs:now-last,timestamp:now});
+  last=now;
 }
 
-document.querySelectorAll(".quiz-btn").forEach(btn=>{
+$$(".btn-opt").forEach(btn=>{
   btn.onclick=()=>{
-    const now=Date.now(), interval=now-last; last=now;
-    events.push({type:"click", label:btn.textContent, intervalMs:interval});
-    const q=steps[step].querySelector("h3").textContent;
-    answers[q]=btn.textContent;
-    nextStep();
+    const name=btn.dataset.name,val=btn.dataset.value;
+    btn.parentElement.querySelectorAll(".btn-opt").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    answers[name]=val;
+    pushEvent("click",name+":"+val);
+    if(step<4) setTimeout(()=>showStep(++step),200);
   };
 });
+$("#prevBtn").onclick=()=>{if(step>1)showStep(--step);}
+$("#nextBtn").onclick=async()=>{
+  if(step<4){showStep(++step);return;}
+  if(step===4){showStep(++step);}
+  else{
+    const name=$("#leadName").value.trim();
+    let phone=$("#leadPhone").value.replace(/[^0-9+]/g,"");
+    if(phone&&!phone.startsWith("+7"))phone="+7"+phone.replace(/^8/,"").slice(-10);
+    if(!name||phone.length<12)return alert("Введите корректные данные");
 
-document.getElementById("quizSubmit").onclick=async()=>{
-  const phone=document.getElementById("quizPhone").value.trim();
-  const duration=Date.now()-events[0]?.timeStart||0;
-  const res=await fetch("/quiz",{method:"POST",headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({userId:"quiz_"+Date.now(),answers,events,phone,durationMs:duration})
-  });
-  const data=await res.json();
-  document.getElementById("quizStatus").textContent =
-    data.action==="allow"
-      ? "✅ Заявка принята, скоро свяжется юрист"
-      : data.action==="deny"
-      ? "⛔️ Похоже, это бот. Доступ закрыт."
-      : "⚠️ Проверка пройдена частично, заявка отправлена на ручную модерацию.";
+    $("#nextBtn").disabled=true;$("#nextBtn").textContent="Отправляем…";
+
+    const userId=localStorage.getItem("userId")||("user_"+Math.random().toString(36).slice(2,10));
+    localStorage.setItem("userId",userId);
+    const payload={userId,answers,events,phone,durationMs:Date.now()-events[0]?.timestamp||0};
+    try{
+      const r=await fetch(QUIZ_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+      const d=await r.json();
+      const verdict=d.action==="allow"?"✅ Подходит, юрист свяжется":
+        d.action==="challenge"?"⚠️ Нужна проверка":"⛔️ Похоже, это бот";
+      $("#summaryBox").style.display="block";
+      $("#summaryBox").textContent=verdict;
+      await fetch(LEAD_URL,{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({name,phone,userId,messages:[{role:"user",content:JSON.stringify(answers)}]})});
+      $("#nextBtn").textContent="Готово ✔";
+    }catch(e){alert("Ошибка соединения");$("#nextBtn").textContent="Отправить";}
+    finally{$("#nextBtn").disabled=false;}
+  }
 };
+showStep(1);
 </script>
 </body>
 </html>
