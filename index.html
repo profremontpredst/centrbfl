@@ -1,1004 +1,1745 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Петрусёва Наталья - Арбитражный управляющий</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-   ym(94755506, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/94755506" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-  <meta charset="UTF-8">
-  <title>Банкротство физических лиц | Арбитражный управляющий Петрусёва Н.А.</title>
-  <link rel="icon" type="image/png" href="https://i.imgur.com/51rnOkm.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f7f9fb; color: #333; line-height: 1.6; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #f8fafc;
+        }
 
-    /* Header */
-    header {
-      background: linear-gradient(rgba(10,61,98,0.85), rgba(10,61,98,0.9)),
-                  url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
-      color: white; text-align: center; padding: 80px 20px;
-      position: relative;
-    }
-    .header-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      text-align: left;
-    }
-    .header-text { flex: 1; }
-    .header-photo { flex: 0 0 300px; }
-    .header-photo img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    header h1 { font-size: 42px; margin-bottom: 15px; font-weight: 700; }
-    header .subtitle { font-size: 22px; margin-bottom: 25px; opacity: 0.95; }
-    .btn {
-      display: inline-block; padding: 16px 32px; background: #ff6b6b;
-      color: white; font-weight: bold; border-radius: 8px; text-decoration: none;
-      box-shadow: 0 4px 15px rgba(255,107,107,0.3); transition: 0.3s;
-      font-size: 18px;
-    }
-    .btn:hover { background: #ff4b4b; transform: translateY(-2px); }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
 
-    .section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-    .section h2 { text-align: center; font-size: 36px; margin-bottom: 50px; color: #0a3d62; font-weight: 700; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    /* About Specialist */
-    .specialist-container {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    }
-    .specialist-photo { flex: 0 0 300px; }
-    .specialist-photo img {
-      width: 100%;
-      border-radius: 12px;
-    }
-    .specialist-info { flex: 1; }
-    .specialist-info h3 {
-      font-size: 28px;
-      color: #0a3d62;
-      margin-bottom: 20px;
-    }
-    .specialist-features {
-      list-style: none;
-      margin-top: 20px;
-    }
-    .specialist-features li {
-      padding: 8px 0;
-      border-bottom: 1px solid #f0f0f0;
-      position: relative;
-      padding-left: 30px;
-    }
-    .specialist-features li:before {
-      content: "✓";
-      color: #ff6b6b;
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
+        .top-bar {
+            background: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
 
-    /* Features */
-    .features { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; }
-    .feature {
-      flex: 1 1 300px; background: white; padding: 35px 25px;
-      border-radius: 12px; text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s;
-    }
-    .feature:hover { transform: translateY(-8px); }
-    .feature img { width: 70px; margin-bottom: 20px; }
-    .feature h3 { font-size: 20px; margin-bottom: 15px; color: #0a3d62; }
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
 
-    /* Stages */
-    .stages { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .stage {
-      flex: 1 1 200px; background: white; padding: 25px 15px;
-      border-radius: 12px; text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-    }
-    .stage-number {
-      width: 40px; height: 40px; background: #0a3d62; color: white;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 15px; font-weight: bold;
-    }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
 
-    /* FAQ */
-    .faq-container { max-width: 800px; margin: 0 auto; }
-    .faq-item {
-      background: white; margin-bottom: 15px; border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;
-    }
-    .faq-question {
-      padding: 20px; cursor: pointer; font-weight: 600;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .faq-answer {
-      padding: 0 20px; max-height: 0; overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-    }
-    .faq-item.active .faq-answer {
-      padding: 0 20px 20px; max-height: 500px;
-    }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a365d;
+            display: flex;
+            align-items: center;
+        }
 
-    /* Chat block */
-    .chat-container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      height: 500px;
-      overflow: hidden;
-      border: 1px solid #e8e8e8;
-    }
-    .chat-header {
-      background: #0a3d62;
-      color: white;
-      padding: 15px 20px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .chat-header img {
-      width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: 0 0 40px;
-    }
-    .chat-header .title { font-size: 16px; font-weight: 700; }
+        .logo:before {
+            content: "⚖️";
+            margin-right: 8px;
+            font-size: 22px;
+        }
 
-    .chat-messages {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      background: #f8fafc;
-    }
-    .message {
-      max-width: 80%;
-      padding: 12px 18px;
-      border-radius: 18px;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    .bot {
-      background: #eef4f9;
-      align-self: flex-start;
-      border-bottom-left-radius: 5px;
-    }
-    .user {
-      background: #ff6b6b;
-      color: white;
-      align-self: flex-end;
-      border-bottom-right-radius: 5px;
-    }
-    .chat-suggestions {
-      padding: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      border-top: 1px solid #e8e8e8;
-      background: #f5f7fa;
-    }
-    .chat-suggestions button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 20px;
-      background: #eef4f9;
-      cursor: pointer;
-      font-size: 13px;
-      transition: 0.3s;
-      color: #0a3d62;
-    }
-    .chat-suggestions button:hover {
-      background: #d6e4f0;
-    }
-    .chat-input {
-      display: flex;
-      border-top: 1px solid #e8e8e8;
-    }
-    .chat-input input {
-      flex: 1;
-      padding: 16px;
-      border: none;
-      outline: none;
-      font-size: 15px;
-    }
-    .chat-input button {
-      padding: 0 20px;
-      border: none;
-      background: #ff6b6b;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.3s;
-    }
-    .chat-input button:hover { background: #ff4b4b; }
-    .chat-input button svg { width: 20px; height: 20px; fill: white; }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
 
-    /* Promo block */
-    .promo-block{
-      background: #0a3d62; color: white; padding: 50px 20px;
-      text-align: center;
-    }
-    .promo-inner{ max-width:1100px; margin:0 auto; }
-    .promo-title{
-      font-weight: 700; font-size: 28px; line-height:1.3; margin-bottom: 20px;
-    }
-    .promo-list{ 
-      list-style: none; max-width: 600px; margin: 0 auto;
-    }
-    .promo-list li{ 
-      margin: 15px 0; padding-left: 30px; text-align: left;
-      position: relative;
-    }
-    .promo-list li:before {
-      content: "•"; color: #ff6b6b; font-size: 24px;
-      position: absolute; left: 0; top: -2px;
-    }
+        .nav-menu a {
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 15px;
+        }
 
-    footer {
-      background: #0a3d62; color: #fff; text-align: center; padding: 40px 20px;
-    }
-    .footer-contacts {
-      font-size: 20px; margin-bottom: 15px; font-weight: 600;
-    }
+        .nav-menu a:hover {
+            color: #2b6cb0;
+        }
 
-    /* === MOBILE CHAT FIX === */
-@media (max-width: 768px) {
-  #consult {
-    padding: 0 !important;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: white;
-    display: none;
-  }
-  
-  #consult:target {
-    display: block;
-  }
-  
-  .chat-container {
-    margin: 0;
-    border-radius: 0;
-    height: 100vh;
-    max-height: none;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .chat-messages {
-    flex: 1;
-    padding-bottom: 120px; /* Место для поля ввода */
-  }
-  
-  .chat-input {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    z-index: 1001;
-  }
-}
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2b6cb0;
+            transition: width 0.3s;
+        }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .header-content { flex-direction: column; text-align: center; }
-  .header-photo { flex: 0 0 auto; max-width: 250px; }
-  .specialist-container { flex-direction: column; }
-  .specialist-photo { flex: 0 0 auto; max-width: 250px; }
-  header h1 { font-size: 32px; }
-  .section { padding: 50px 20px; }
-}
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
 
-    /* Popup form */
-    #leadOverlay {
-      display:none; position:fixed; inset:0;
-      background:rgba(0,0,0,0.6); z-index:9998;
-    }
-    #leadPopup, #leadThanks {
-      display:none; position:fixed; top:50%; left:50%;
-      transform:translate(-50%,-50%);
-      background:#fff; color:#333; padding:30px;
-      border-radius:16px; z-index:9999;
-      max-width:400px; width:90%;
-      box-shadow:0 0 30px rgba(0,0,0,0.4);
-      text-align:center;
-    }
-    #leadPopup h3 { margin-bottom:20px; color:#0a3d62; font-size:22px; }
-    #leadPopup input {
-      width:100%; padding:12px; border-radius:8px;
-      border:1px solid #ccc; margin-bottom:15px;
-      font-size:16px;
-    }
-    #leadPopup button {
-      width:100%; padding:14px;
-      border:none; border-radius:8px;
-      background-color:#ff6b6b; color:#fff;
-      font-weight:bold; cursor:pointer; font-size:16px;
-    }
-    #leadPopup button:hover { background:#ff4b4b; }
-    #typingIndicator {
-  font-style: italic;
-  display: none;
-  align-self: flex-start;
-  margin-left: 10px;
-}
-#typingIndicator .dot {
-  animation: blink 1.2s infinite ease-in-out;
-  opacity: 0.3;
-}
-#typingIndicator .dot:nth-child(2){animation-delay:0.2s;}
-#typingIndicator .dot:nth-child(3){animation-delay:0.4s;}
-@keyframes blink {
-  0%,80%,100%{opacity:0.3;}
-  40%{opacity:1;}
-}
-    /* === КВИЗ FLEXBE СТИЛЬ === */
-.quiz-wrapper * { all: unset; display: revert; box-sizing: border-box; }
+        .btn {
+            background: linear-gradient(135deg, #2b6cb0, #1a365d);
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(43, 108, 176, 0.3);
+            font-size: 15px;
+        }
 
-.quiz-wrapper{
-  min-height:100svh; display:flex; align-items:center; justify-content:center;
-  padding:24px; background:linear-gradient(180deg,#f6f9fc 0%,#eef3f8 100%);
-}
-.quiz{
-  width:min(880px,96vw); background:#fff; border-radius:20px;
-  box-shadow:0 20px 60px rgba(10,61,98,.15); overflow:hidden;
-  display:grid; grid-template-columns:1fr;
-}
-.quiz__header{
-  background:#0a3d62; color:#fff; padding:18px 22px; display:flex; align-items:center; gap:12px;
-}
-.quiz__logo{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-weight:700;}
-.quiz__title{font-weight:800;}
-.quiz__progress{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:13px;opacity:.9;}
-.bar{width:160px;height:8px;border-radius:999px;background:rgba(255,255,255,.25);overflow:hidden;}
-.bar>span{display:block;height:100%;background:#fff;width:0%}
-.quiz__body{padding:28px 28px 22px;}
-.step{display:none;animation:fade .35s ease;}
-.step.active{display:block;}
-@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.q{font-size:22px;font-weight:800;color:#0a3d62;margin-bottom:16px;}
-.options{display:grid;gap:12px;grid-template-columns:repeat(3,1fr);}
-.btn-opt{border:1px solid #e7eef7;border-radius:14px;padding:16px 14px;background:#f8fbff;cursor:pointer;text-align:center;transition:.2s;font-weight:600;}
-.btn-opt:hover{transform:translateY(-1px);background:#f0f6ff;}
-.btn-opt.active{outline:2px solid #0a3d62;background:#e8f3ff;}
-.controls{display:flex;gap:10px;justify-content:space-between;margin-top:22px;}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:12px;border:1px solid #e7eef7;background:#fff;cursor:pointer;transition:.2s;font-weight:700;}
-.btn--primary{background:#ff6b6b;color:#fff;border-color:transparent;}
-.btn--primary:hover{filter:brightness(.98);transform:translateY(-1px);}
-.muted{color:#6b7a90;font-size:13px;margin-top:6px;}
-.lead{display:grid;gap:12px;grid-template-columns:1fr 1fr;}
-.field{display:grid;gap:8px;}
-.input{padding:14px 12px;border-radius:12px;border:1px solid #e7eef7;font-size:16px;background:#f9fbfd;}
-.result{border:1px dashed #e7eef7;padding:14px;border-radius:12px;background:#fbfdff;margin-top:10px;font-size:14px;}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-size:13px;font-weight:700;}
-.ok{background:#e9f7f0;color:#18a957;}
-.warn{background:#fff6e5;color:#996b00;}
-.deny{background:#ffeaea;color:#d9534f;}
-.footer{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #e7eef7;background:#fcfdff;}
-.hint{font-size:12px;color:#6b7a90}
-@media(max-width:680px){.options{grid-template-columns:1fr}.lead{grid-template-columns:1fr}.quiz__header{flex-wrap:wrap;gap:8px}.quiz__progress{width:100%}.bar{flex:1}}
-    /* === ФИКС КНОПКИ В ХЕДЕРЕ === */
-header .btn {
-  background:#ff6b6b !important;
-  color:#fff !important;
-}
-header .btn:hover {
-  background:#ff4b4b !important;
-}
-  </style>
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(43, 108, 176, 0.4);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 180px 0 120px;
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,160C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            display: block;
+            color: #90cdf4;
+        }
+
+        .hero-image {
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border: 5px solid rgba(255,255,255,0.1);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -10px;
+            background: linear-gradient(135deg, #2b6cb0, #1a365d);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .experience-badge h2 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .about {
+            padding: 120px 0;
+            background: #f8fafc;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #1a365d;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #2b6cb0;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #2b6cb0;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2b6cb0;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .about-text {
+            padding: 10px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #1a365d;
+        }
+
+        .feature {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            border-left: 4px solid #2b6cb0;
+        }
+
+        .feature:hover {
+            transform: translateX(5px);
+        }
+
+        .feature h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #1a365d;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature h4 i {
+            margin-right: 12px;
+            color: #2b6cb0;
+            font-size: 1.2rem;
+        }
+
+        .quiz-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+        }
+
+        .professional {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .professional-main {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .professional-info {
+            padding-right: 20px;
+        }
+
+        .professional-info p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .professional-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .main-certificate {
+            text-align: center;
+        }
+
+        .main-certificate img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s;
+        }
+
+        .main-certificate img:hover {
+            transform: scale(1.02);
+        }
+
+        .additional-photo {
+            text-align: center;
+        }
+
+        .additional-photo img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .additional-photo img:hover {
+            transform: scale(1.03);
+        }
+
+        .image-caption {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .etap {
+            padding: 120px 0;
+            background: #f8fafc;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            border-top: 4px solid #2b6cb0;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 45px;
+            background: #2b6cb0;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(43, 108, 176, 0.3);
+        }
+
+        .step h3 {
+            margin: 20px 0 15px;
+            color: #1a365d;
+            font-size: 1.4rem;
+        }
+
+        .step p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .faq {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .faq-question {
+            padding: 25px;
+            background: #f8fafc;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .faq-question:hover {
+            background: #edf2f7;
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-active .faq-answer {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+
+        .faq-active .faq-question {
+            background: #2b6cb0;
+            color: white;
+        }
+
+        .faq-question span {
+            transition: transform 0.3s;
+        }
+
+        .faq-active .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        .contacts {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: white;
+            position: relative;
+        }
+
+        .contacts::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%231a252f" fill-opacity="0.2" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,160C960,139,1056,117,1152,117.3C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, background 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item h3 i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalAppear 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #1a365d;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #2b6cb0;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.2);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #718096;
+            transition: color 0.3s;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-modal:hover {
+            color: #2d3748;
+            background: #f7fafc;
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background: #1a365d;
+            margin: 5px;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                gap: 40px;
+            }
+            
+            .professional-main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .professional-info {
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content,
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero {
+                padding: 150px 0 100px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                right: 0;
+                top: 0;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                width: 70%;
+                transform: translateX(100%);
+                transition: transform 0.5s ease;
+                justify-content: center;
+                align-items: center;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                z-index: 1001;
+                padding: 80px 20px 20px;
+            }
+
+            .nav-active {
+                transform: translateX(0);
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .toggle .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .toggle .line2 {
+                opacity: 0;
+            }
+
+            .toggle .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-badge {
+                position: relative;
+                bottom: 0;
+                right: 0;
+                margin-top: 30px;
+                display: inline-block;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 130px 0 80px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-card {
+                padding: 25px 20px;
+            }
+            
+            .contact-item {
+                padding: 30px 20px;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+    
+    <style>
+        .quiz-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .quiz-wrapper {
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .quiz__header {
+            background: #fff;
+            color: #0c2f66;
+            border-bottom: 2px solid #0066FF;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quiz__title {
+            font-weight: 700;
+            font-size: 16px;
+            color: #0c2f66;
+        }
+        
+        .quiz__progress {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+        
+        .bar {
+            width: 120px;
+            height: 4px;
+            border-radius: 999px;
+            background: rgba(0,102,255,.15);
+            overflow: hidden;
+        }
+        
+        #pBar {
+            display: block;
+            height: 100%;
+            width: 0%;
+            background: #0066FF;
+            transition: width .25s ease;
+        }
+        
+        .quiz__body {
+            padding: 14px;
+            flex: 1;
+        }
+        
+        .step {
+            display: none;
+            animation: fade .25s ease;
+        }
+        
+        .step.active {
+            display: block;
+        }
+        
+        .q {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0c2f66;
+            margin-bottom: 10px;
+        }
+        
+        .options {
+            display: grid;
+            gap: 8px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .btn-opt {
+            border: 1px solid #DCE3EB;
+            border-radius: 8px;
+            padding: 10px;
+            background: transparent;
+            color: #0c2f66;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            transition: border-color .2s, background .2s, color .2s;
+        }
+        
+        .btn-opt:hover, .btn-opt.active {
+            border-color: #0066FF;
+            color: #0066FF;
+            background: #EFF5FF;
+        }
+        
+        .lead {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .field {
+            display: grid;
+            gap: 6px;
+        }
+        
+        .field label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #0c2f66;
+        }
+        
+        .input {
+            padding: 10px;
+            border: 1px solid #DCE3EB;
+            border-radius: 8px;
+            font-size: 14px;
+            background: #fff;
+        }
+        
+        #quizHoneypot {
+            display: none !important;
+        }
+        
+        .result {
+            display: none;
+            border: 1px dashed #DCE3EB;
+            border-radius: 8px;
+            padding: 10px;
+            background: #f8fafc;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        
+        .muted {
+            display: none;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #7c8a9a;
+            text-align: center;
+        }
+        
+        .thanks-box {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .thanks-box img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 18px;
+            object-fit: cover;
+        }
+        
+        .thanks-box p {
+            font-size: 17px;
+            color: #0c2f66;
+            font-weight: 600;
+        }
+        
+        .footer {
+            border-top: 1px solid #E9EEF4;
+            background: #FAFBFD;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            color: #7c8a9a;
+        }
+        
+        .footer a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        @keyframes fade {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: none; }
+        }
+        
+        @media (max-width: 680px) {
+            .options {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .quiz__body {
+                padding: 12px !important;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <div class="header-text">
-        <h1>Арбитражный управляющий<br>Петрусёва Наталья Анатольевна</h1>
-        <p class="subtitle">Процедура банкротства физических лиц с гарантией результата</p>
-        <a href="#consult" class="btn">Бесплатная консультация</a>
-      </div>
-      <div class="header-photo">
-        <img src="https://i.imgur.com/8Azuzn4.png" alt="Разбитые кредитные карты и молоток судьи">
-      </div>
-    </div>
-  </header>
-
-  <!-- О специалисте -->
-  <section class="section">
-    <h2>О специалисте</h2>
-    <div class="specialist-container">
-      <div class="specialist-photo">
-        <img src="https://i.imgur.com/6vU2Ypa.png" alt="Петрусёва Наталья Анатольевна">
-      </div>
-      <div class="specialist-info">
-        <h3>Петрусёва Наталья Анатольевна</h3>
-        <p>Арбитражный управляющий с 2022 года являюсь сертифицированным членом Ассоциации СОАУ «Солидарность» на основании решения Совета Ассоциации.</p>
-        <ul class="specialist-features">
-          <li>Более 200 успешно завершенных дел о банкротстве</li>
-          <li>Специализация - физические лица и индивидуальные предприниматели</li>
-          <li>Полное сопровождение от консультации до списания долгов</li>
-          <li>Член СРО АУ «Центр»</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <div class="quiz-wrapper">
-  <div class="quiz" id="quiz">
-    <div class="quiz__header">
-      <div class="quiz__logo">AU</div>
-      <div class="quiz__title">Проверка на банкротство</div>
-      <div class="quiz__progress">
-        <span id="pText">1 / 5</span>
-        <div class="bar"><span id="pBar"></span></div>
-      </div>
-    </div>
-    <div class="quiz__body">
-      <div class="step active" data-step="1">
-        <div class="q">1. Какая у вас сумма долга?</div>
-        <div class="options">
-          <button class="btn-opt" data-name="debt" data-value="до 300 тыс.">До 300 тыс.</button>
-          <button class="btn-opt" data-name="debt" data-value="300–500 тыс.">300–500 тыс.</button>
-          <button class="btn-opt" data-name="debt" data-value="более 500 тыс.">Более 500 тыс.</button>
+    <div class="top-bar">
+        <div class="container">
+            Консультация всегда бесплатна! Просто позвоните мне.
         </div>
-      </div>
+    </div>
 
-      <div class="step" data-step="2">
-        <div class="q">2. Есть ли просрочки?</div>
-        <div class="options">
-          <button class="btn-opt" data-name="delay" data-value="нет">Нет</button>
-          <button class="btn-opt" data-name="delay" data-value="менее 3 мес.">Менее 3 мес.</button>
-          <button class="btn-opt" data-name="delay" data-value="более 3 мес.">Более 3 мес.</button>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">ПЕТРУСЁВА НАТАЛЬЯ</div>
+                <ul class="nav-menu">
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#professional">Профессиональная деятельность</a></li>
+                    <li><a href="#etap">Этапы</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                <a href="#" class="btn open-modal">Оставить заявку</a>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
         </div>
-      </div>
+    </header>
 
-      <div class="step" data-step="3">
-        <div class="q">3. Работаете официально?</div>
-        <div class="options">
-          <button class="btn-opt" data-name="job" data-value="да">Да</button>
-          <button class="btn-opt" data-name="job" data-value="нет">Нет</button>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <h1>Арбитражный управляющий</h1>
+                    <p class="hero-subtitle">
+                        Процедура банкротства напрямую с арбитражным управляющим на выгодных условиях
+                    </p>
+                    <a href="#" class="btn open-modal">Получить консультацию</a>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span>Успешно завершенных дел</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span>Конфиденциальность данных</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://i.imgur.com/6vU2Ypa.png" alt="Наталья Петрусёва">
+                    <div class="experience-badge">
+                        <h2>20+</h2>
+                        <span>Лет экспертной работы</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="step" data-step="4">
-        <div class="q">4. Есть ли имущество кроме жилья?</div>
-        <div class="options">
-          <button class="btn-opt" data-name="property" data-value="нет">Нет</button>
-          <button class="btn-opt" data-name="property" data-value="есть, хочу сохранить">Есть, хочу сохранить</button>
-          <button class="btn-opt" data-name="property" data-value="готов продать">Готов продать</button>
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Обо мне</h2>
+            <div class="about-content">
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="number">100%</span>
+                        Успешно реализованных дел
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">100%</span>
+                        Удовлетворенность клиентов
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">20+</span>
+                        Лет экспертной работы
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">100%</span>
+                        Конфиденциальность
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Опытный арбитражный управляющий</h3>
+                    <div class="feature">
+                        <h4><i class="fas fa-briefcase"></i> Опыт работы более 8 лет</h4>
+                        <p>Более 8 лет специализируюсь на помощи людям в сложных финансовых ситуациях. Моя экспертиза позволяет находить оптимальные решения даже в самых сложных случаях.</p>
+                    </div>
+                    <div class="feature">
+                        <h4><i class="fas fa-user-tie"></i> Индивидуальный подход</h4>
+                        <p>Подхожу к решению проблемы индивидуально, с полным пониманием всех аспектов законодательства о банкротстве. Каждый клиент получает персональное сопровождение.</p>
+                    </div>
+                    <div class="feature">
+                        <h4><i class="fas fa-shield-alt"></i> Полная конфиденциальность</h4>
+                        <p>Гарантирую полную конфиденциальность всех предоставленных данных и деловую этику на всех этапах сотрудничества.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-     <div class="step" data-step="5">
-  <div class="q">5. Оставьте контакт для результата</div>
-  <div class="lead" id="leadForm">
-    <div class="field">
-      <label>Ваше имя</label>
-      <input id="quizName" class="input" placeholder="Иван">
-    </div>
-    <div class="field">
-      <label>Телефон</label>
-      <input id="quizPhone" class="input" placeholder="+7 900 000-00-00">
-    </div>
-    <!-- HONEYPOT ПОЛЕ (скрытое) -->
-    <input type="text" id="quizHoneypot" style="display: none !important; opacity: 0; position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
-  </div>
-  <div class="result" id="summaryBox" style="display:none;"></div>
-</div>
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <div class="quiz-header" style="text-align: center; margin-bottom: 40px;">
+                <h2 class="section-title" style="color: white; margin-bottom: 20px;">Узнайте, можете ли вы подать на банкротство</h2>
+                <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 30px;">
+                    Пройдите короткий тест и получите предварительную оценку вашей ситуации: 
+                    возможные сроки, стоимость процедуры и рекомендации специалиста
+                </p>
+                <div class="quiz-benefits" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 20px 0;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold;">📊</div>
+                        <div>Анализ за 2 минуты</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold;">⚖️</div>
+                        <div>Точный расчет</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: bold;">💰</div>
+                        <div>Предварительная стоимость</div>
+                    </div>
+                </div>
+            </div>
 
-      <div class="controls">
-        <button class="btn btn--ghost" id="prevBtn" disabled>← Назад</button>
-        <button class="btn btn--primary" id="nextBtn">Далее →</button>
-      </div>
-      <div class="muted">Ответьте на 5 вопросов, чтобы проверить возможность банкротства</div>
-    </div>
-    <div class="footer">
-      <div class="hint">Антибот включён • Поведение анализируется</div>
-      <div class="hint" id="status">Шаг 1 из 5</div>
-    </div>
-  </div>
-</div>
+            <div class="quiz-container">
+                <div class="quiz-wrapper">
+                    <div class="quiz__header">
+                        <div class="quiz__title">Проверка на банкротство</div>
+                        <div class="quiz__progress">
+                            <div class="bar">
+                                <span id="pBar" style="display: block; height: 100%; width: 0%; background: #0066FF; transition: width .25s ease;"></span>
+                            </div>
+                        </div>
+                    </div>
 
-  <!-- Преимущества -->
-  <section class="section" style="background: #f0f5fa; padding: 80px 20px;">
-    <h2>Почему выбирают нас</h2>
-    <div class="features">
-      <div class="feature">
-        <img src="https://img.icons8.com/color/96/guarantee.png" alt="Гарантия">
-        <h3>Гарантия результата</h3>
-        <p>Полное списание долгов через процедуру банкротства в соответствии с законом</p>
-      </div>
-      <div class="feature">
-        <img src="https://img.icons8.com/color/96/expensive.png" alt="Фиксированная цена">
-        <h3>Фиксированная стоимость</h3>
-        <p>Прозрачное ценообразование без скрытых платежей и комиссий</p>
-      </div>
-      <div class="feature">
-        <img src="https://img.icons8.com/color/96/security-checked.png" alt="Конфиденциальность">
-        <h3>Полная конфиденциальность</h3>
-        <p>Ваши персональные данные защищены и не разглашаются третьим лицам</p>
-      </div>
-    </div>
-  </section>
+                    <div class="quiz__body" id="quizBody">
+                        <div class="step active" data-step="1">
+                            <div class="q">1. Какая у вас сумма долга?</div>
+                            <div class="options">
+                                <button class="btn-opt" data-name="debt" data-value="до 300 тыс.">До 300 тыс.</button>
+                                <button class="btn-opt" data-name="debt" data-value="300–500 тыс.">300–500 тыс.</button>
+                                <button class="btn-opt" data-name="debt" data-value="более 500 тыс.">Более 500 тыс.</button>
+                            </div>
+                        </div>
 
-  <!-- Этапы -->
-  <section class="section">
-    <h2>Этапы процедуры банкротства</h2>
-    <div class="stages">
-      <div class="stage">
-        <div class="stage-number">1</div>
-        <h3>Консультация</h3>
-        <p>Анализ вашей ситуации и разработка стратегии</p>
-      </div>
-      <div class="stage">
-        <div class="stage-number">2</div>
-        <h3>Подготовка</h3>
-        <p>Сбор документов и подача заявления в суд</p>
-      </div>
-      <div class="stage">
-        <div class="stage-number">3</div>
-        <h3>Реализация</h3>
-        <p>Процедура банкротства под контролем арбитражного управляющего</p>
-      </div>
-      <div class="stage">
-        <div class="stage-number">4</div>
-        <h3>Завершение</h3>
-        <p>Списание долгов и получение свидетельства</p>
-      </div>
-    </div>
-  </section>
+                        <div class="step" data-step="2">
+                            <div class="q">2. Есть ли просрочки?</div>
+                            <div class="options">
+                                <button class="btn-opt" data-name="delay" data-value="нет">Нет</button>
+                                <button class="btn-opt" data-name="delay" data-value="менее 3 мес.">Менее 3 мес.</button>
+                                <button class="btn-opt" data-name="delay" data-value="более 3 мес.">Более 3 мес.</button>
+                            </div>
+                        </div>
 
-  <!-- Промо-блок -->
-  <section class="promo-block">
-    <div class="promo-inner">
-      <div class="promo-title">Почему выбирают профессионального арбитражного управляющего</div>
-      <ul class="promo-list">
-        <li><b>Опыт и квалификация.</b> Более 8 лет успешной практики в банкротстве физических лиц</li>
-        <li><b>Индивидуальный подход.</b> Каждое дело рассматривается персонально с учетом всех обстоятельств</li>
-        <li><b>Юридическая защита.</b> Полное сопровождение на всех этапах процедуры банкротства</li>
-        <li><b>Результат.</b> Гарантия списания долгов в соответствии с законодательством РФ</li>
-      </ul>
-    </div>
-  </section>
+                        <div class="step" data-step="3">
+                            <div class="q">3. Работаете официально?</div>
+                            <div class="options">
+                                <button class="btn-opt" data-name="job" data-value="да">Да</button>
+                                <button class="btn-opt" data-name="job" data-value="нет">Нет</button>
+                            </div>
+                        </div>
 
-  <!-- FAQ -->
-  <section class="section">
-    <h2>Часто задаваемые вопросы</h2>
-    <div class="faq-container">
-      <div class="faq-item">
-        <div class="faq-question">Сколько стоит процедура банкротства?<span>+</span></div>
-        <div class="faq-answer">
-          <p>Стоимость процедуры банкротства зависит от сложности вашего дела и составляет от 25 000 рублей. Точную стоимость можно узнать после бесплатной консультации.</p>
+                        <div class="step" data-step="4">
+                            <div class="q">4. Есть ли имущество кроме жилья?</div>
+                            <div class="options">
+                                <button class="btn-opt" data-name="property" data-value="нет">Нет</button>
+                                <button class="btn-opt" data-name="property" data-value="есть, хочу сохранить">Есть, хочу сохранить</button>
+                                <button class="btn-opt" data-name="property" data-value="готов продать">Готов продать</button>
+                            </div>
+                        </div>
+
+                        <div class="step" data-step="5">
+                            <div class="q">5. Контакт для результата</div>
+                            <div class="lead">
+                                <div class="field">
+                                    <label>Ваше имя</label>
+                                    <input id="quizName" class="input" placeholder="Иван">
+                                </div>
+                                <div class="field">
+                                    <label>Телефон</label>
+                                    <input id="quizPhone" class="input" placeholder="+7 900 000-00-00">
+                                </div>
+                                <input type="text" id="quizHoneypot" style="display: none !important;">
+                            </div>
+                            <div class="result" id="summaryBox" style="display: none; border: 1px dashed #DCE3EB; border-radius: 8px; padding: 10px; background: #f8fafc; font-size: 13px; margin-top: 8px;"></div>
+                            <div class="muted" id="autoHint" style="display: none; margin-top: 8px; font-size: 12px; color: #7c8a9a; text-align: center;">Отправляем…</div>
+                        </div>
+
+                        <div class="thanks-box" id="thanksBox" style="display: none; text-align: center; padding: 40px 20px;">
+                            <img src="https://i.imgur.com/6vU2Ypa.png" alt="Наталья Петрусёва" style="width: 90px; height: 90px; border-radius: 50%; margin-bottom: 18px; object-fit: cover;">
+                            <p style="font-size: 17px; color: #0c2f66; font-weight: 600;">Скоро свяжусь с вами</p>
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                        <a href="https://pravo31.ru/privacy/" target="_blank">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quiz-footer" style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; backdrop-filter: blur(10px);">
+                <p style="margin-bottom: 15px; font-size: 0.9rem;">
+                    <strong>Внимание:</strong> Данный расчет не является офертой и предоставляется для предварительной оценки.
+                </p>
+                <p style="font-size: 0.85rem; opacity: 0.8;">
+                    Расчет выполнен на основе анализа Федерального закона "О несостоятельности (банкротстве)" №127-ФЗ, 
+                    судебной практики Арбитражных судов РФ, методических рекомендаций Саморегулируемой организации 
+                    Ассоциации "Солидарность" и статистики завершенных дел за 2023-2024 годы.
+                </p>
+            </div>
         </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Какие долги можно списать?<span>+</span></div>
-        <div class="faq-answer">
-          <p>Через процедуру банкротства можно списать кредиты, займы, долги по ЖКХ, микрозаймы и другие финансовые обязательства. Не списываются алименты, возмещение вреда здоровью, долги по зарплате.</p>
+    </section>
+
+    <section class="professional" id="professional">
+        <div class="container">
+            <h2 class="section-title">Профессиональная деятельность</h2>
+            <div class="professional-main">
+                <div class="professional-info">
+                    <p>С 2022 года являюсь сертифицированным членом Ассоциации СОАУ «Солидарность» на основании решения Совета Ассоциации.</p>
+                    <p>Моя профессиональная деятельность направлена на помощь гражданам и организациям в процедурах банкротства, обеспечивая законность, прозрачность и эффективность процесса.</p>
+                    <div class="feature">
+                        <h4><i class="fas fa-award"></i> Профессиональная сертификация</h4>
+                        <p>Регулярно прохожу повышение квалификации и участвую в профессиональных мероприятиях для поддержания высокого уровня экспертизы. Все процедуры осуществляются в строгом соответствии с законодательством РФ.</p>
+                    </div>
+                    <div class="feature">
+                        <h4><i class="fas fa-balance-scale"></i> Соблюдение этических норм</h4>
+                        <p>В своей работе строго придерживаюсь профессиональной этики и стандартов арбитражного управления, что гарантирует клиентам защиту их прав и законных интересов.</p>
+                    </div>
+                </div>
+                <div class="professional-visual">
+                    <div class="main-certificate">
+                        <img src="https://i.ibb.co/zWC62VqT/certificate.jpg" alt="Сертификат члена Ассоциации СОАУ">
+                        <p class="image-caption">Сертификат члена Ассоциации СОАУ</p>
+                    </div>
+                    <div class="additional-photo">
+                        <img src="https://i.postimg.cc/T24YJD11/Izobrazenie-Whats-App-2025-02-03-v-17-05-43-11f67e98.jpg" alt="Наталья Петрусёва">
+                        <p class="image-caption">Петрусёва Наталья - Арбитражный управляющий</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Сколько длится процедура банкротства?<span>+</span></div>
-        <div class="faq-answer">
-          <p>Средний срок процедуры банкротства составляет от 6 до 10 месяцев, в зависимости от сложности дела и загруженности суда.</p>
+    </section>
+
+    <section class="etap" id="etap">
+        <div class="container">
+            <h2 class="section-title">Этапы работы</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Консультация</h3>
+                    <p>Бесплатная первичная консультация, детальный анализ вашей финансовой ситуации и оценка перспектив процедуры банкротства</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Подготовка</h3>
+                    <p>Сбор необходимых документов, подготовка заявления о признании банкротом и формирование пакета документов для подачи в суд</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Подача заявления</h3>
+                    <p>Подача заявления о банкротстве в арбитражный суд, представление ваших интересов на предварительных заседаниях</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Сопровождение</h3>
+                    <p>Полное сопровождение процедуры банкротства до завершения, включая взаимодействие с кредиторами и контроль за исполнением процедуры</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Частые вопросы</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Банкротство это очень долго, ко мне продолжат ходить коллекторы?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Платить по кредитам вы перестанете сразу после начала процедуры. Исполнительные производства так же прекратятся сразу после начала процедуры, а коллекторы не будут иметь права с вами контактировать. С момента подачи заявления в суд вводится мораторий на удовлетворение требований кредиторов.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Нужно вникать в юридические нюансы?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Все юридические вопросы мы берем на себя. Вы получите полное сопровождение на всех этапах. От вас потребуется только предоставить необходимые документы и следовать нашим рекомендациям.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Какие гарантии вы предоставляете?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Мы гарантируем 100% успешное завершение процедуры банкротства при соблюдении всех наших рекомендаций и предоставлении достоверной информации. Наша экспертиза и знание законодательства позволяют минимизировать риски и обеспечить положительный результат.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Что происходит с имуществом при банкротстве?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Законом предусмотрено имущество, которое не подлежит взысканию: единственное жилье, предметы обычной домашней обстановки, профессиональные инструменты и др. Остальное имущество может быть реализовано для расчета с кредиторами, но мы всегда стараемся найти законные способы сохранения максимального количества активов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Контакты</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> Адрес</h3>
+                    <p>Ульяновск, ул. Андрея Блаженного д 34 (вход с улицы Матросова)</p>
+                </div>
+                <div class="contact-item">
+                    <h3><i class="fas fa-phone"></i> Телефон</h3>
+                    <p>+7 937 275-66-51</p>
+                </div>
+                <div class="contact-item">
+                    <h3><i class="fas fa-envelope"></i> Email</h3>
+                    <p>petruseva@mail.ru</p>
+                </div>
+                <div class="contact-item">
+                    <h3><i class="fas fa-clock"></i> Режим работы</h3>
+                    <p>Пн-Пт: 9:00 - 18:00<br>Сб: 10:00 - 16:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Петрусёва Наталья. Арбитражный управляющий. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Получить консультацию</h2>
+            
+            <div id="smart-form">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" placeholder="Иван" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" placeholder="+7 (900) 000-00-00" required>
+                    </div>
+                    
+                    <input type="text" id="honeypot" style="display:none !important;">
+                    
+                    <button type="submit" class="btn" style="width: 100%;" id="sendBtn">Отправить заявку</button>
+                    
+                    <button id="fakeBtn" tabindex="-1" style="opacity:0;height:0;width:0;overflow:hidden;position:absolute;left:-9999px;">Не нажимай</button>
+                </form>
+                
+                <div class="muted" id="status" style="margin-top:10px;font-size:12px;text-align:center;color:#7c8a9a;"></div>
+            </div>
+            
+            <div id="receiving-screen" style="display: none; text-align: center; padding: 40px 20px;">
+                <img src="https://i.imgur.com/6vU2Ypa.png" alt="Наталья Петрусёва" style="width:90px;height:90px;border-radius:50%;margin-bottom:18px;object-fit:cover;animation:pulse 2s infinite;">
+                <div style="font-size:17px;color:#1a365d;font-weight:600;margin-bottom:8px;">Получила вашу заявку</div>
+                <div style="font-size:14px;color:#4a5568;">Скоро свяжусь с вами для консультации</div>
+            </div>
+            
+            <div id="thanks-screen" style="display: none; text-align: center; padding: 40px 20px;">
+                <img src="https://i.imgur.com/6vU2Ypa.png" alt="Наталья Петрусёва" style="width:90px;height:90px;border-radius:50%;margin-bottom:18px;object-fit:cover;">
+                <div style="font-size:17px;color:#1a365d;font-weight:600;">Получила ваш контакт, скоро свяжусь с вами</div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- Консультация -->
-  <section id="consult" class="section" style="padding-top: 0;">
-    <h2>Бесплатная консультация</h2>
-    <p style="text-align: center; margin-bottom: 30px; font-size: 18px;">Получите ответы на все вопросы по процедуре банкротства</p>
+    <script src="https://unpkg.com/imask"></script>
+    <script>
+        const QUIZ_URL = "https://openai-gpt-proxy-d2py.onrender.com/quiz";
+        const LEAD_URL = "https://openai-gpt-proxy-d2py.onrender.com/lead";
 
-    <!-- Chat -->
-    <div class="chat-container">
-      <div class="chat-header">
-        <img src="https://i.imgur.com/VnE8ZUa.png" alt="Анна">
-        <div class="title">Юрист-консультант Анна</div>
-      </div>
-      <div class="chat-messages" id="chat"></div>
-      <div id="typingIndicator" style="display:none; padding:10px 20px; font-size:14px; color:#0a3d62;">
-  Анна печатает<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
-</div>
-      <div class="chat-suggestions">
-        <button onclick="quickSend('Хочу узнать стоимость банкротства')">Узнать стоимость</button>
-        <button onclick="quickSend('Какие документы нужны?')">Необходимые документы</button>
-        <button onclick="quickSend('Могу ли я списать долги?')">Проверка возможности</button>
-      </div>
-      <div class="chat-input">
-        <button onclick="startVoice()" title="Говорить">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M192 256c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32s32 14.3 32 32V256zM160 320c35.3 0 64-28.7 64-64V128a64 64 0 1 0-128 0V256c0 35.3 28.7 64 64 64zm56 32H104c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v56c0 13.3 10.7 24 24 24s24-10.7 24-24V400h24c13.3 0 24-10.7 24-24s-10.7-24-24-24z"/></svg>
-        </button>
-        <input type="text" id="chatInput" placeholder="Введите ваш вопрос...">
-        <button onclick="sendMessage()">Отправить</button>
-      </div>
-    </div>
-  </section>
+        const modal = document.getElementById('modal');
+        const openModalButtons = document.querySelectorAll('.open-modal');
+        const closeModalButton = document.querySelector('.close-modal');
 
-  <footer>
-    <div class="footer-contacts">8 (937) 275-66-51</div>
-    <p>Адрес: г. Ульяновск, ул. Андрея Блаженного д 34 (вход с улицы Матросова)</p>
-    <p style="margin-top: 20px;">© 2025. Арбитражный управляющий Петрусёва Наталья Анатольевна.<br>Член СРО АУ «Солидарность»</p>
-  </footer>
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                resetForm();
+            });
+        });
 
-  <!-- Overlay + Form + Thanks -->
-  <div id="leadOverlay"></div>
+        closeModalButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            resetForm();
+        });
 
-  <div id="leadPopup">
-    <h3 id="leadTitle">Оставьте заявку на консультацию</h3>
-    <input id="leadName" placeholder="Ваше имя">
-    <input id="leadPhone" placeholder="+7 (___) ___-__-__">
-    <button id="leadSubmitBtn">Получить консультацию</button>
-  </div>
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                resetForm();
+            }
+        });
 
-  <div id="leadThanks">
-    <div style="font-size: 18px; padding: 20px;">✅ Спасибо за заявку!<br>Мы свяжемся с вами в течение 15 минут</div>
-  </div>
+        let events = [], last = Date.now();
 
-<script src="https://unpkg.com/imask"></script>
-<script>
-  const OPENAI_PROXY_URL = "https://openai-gpt-proxy-d2py.onrender.com/gpt";
-  const LEAD_URL = "https://openai-gpt-proxy-d2py.onrender.com/lead";
+        function pushEvent(type, label) {
+            const now = Date.now();
+            events.push({ type, label, intervalMs: now - last, timestamp: now });
+            last = now;
+        }
 
-  let messages = [];
-  const chatBox = document.getElementById("chat");
-  const chatInput = document.getElementById("chatInput");
+        ["click", "input", "focus"].forEach(ev => {
+            document.addEventListener(ev, e => {
+                if (e.target.id === "honeypot") return;
+                pushEvent(ev, e.target.id || e.target.tagName);
+            }, true);
+        });
 
-  // userId / UTM
-  let userId = localStorage.getItem("userId") || "user_" + Math.random().toString(36).substr(2,9);
-  localStorage.setItem("userId", userId);
+        document.getElementById("fakeBtn").addEventListener("click", () => {
+            pushEvent("fake_click", "bot_suspect");
+        });
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const utm_source = urlParams.get("utm_source") || "";
-  const utm_content = urlParams.get("utm_content") || "";
+        const phoneInput = document.getElementById("phone");
+        const mask = IMask(phoneInput, { mask: '+{7} (000) 000-00-00' });
 
-  function appendMessage(text, fromUser=false){
-    const div = document.createElement("div");
-    div.className = "message " + (fromUser ? "user" : "bot");
-    div.textContent = text;
-    chatBox.appendChild(div);
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
+        document.getElementById("contact-form").addEventListener("submit", async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById("name").value.trim();
+            const phone = phoneInput.value.replace(/[^0-9+]/g, '');
+            const honeypot = document.getElementById("honeypot").value;
+            const status = document.getElementById("status");
 
- // === Живой набор Анны ===
-async function typeMessage(text) {
-  const typingIndicator = document.getElementById("typingIndicator");
-  typingIndicator.style.display = "block";
+            if (honeypot) return;
+            if (!name || phone.length < 12) {
+                status.textContent = "Введите корректные данные";
+                return;
+            }
 
-  // время ожидания перед показом сообщения (пропорционально длине)
-  const delay = Math.min(2500, 500 + text.length * 25); 
-  await new Promise(r => setTimeout(r, delay));
+            document.getElementById("sendBtn").disabled = true;
+            document.getElementById("smart-form").style.display = "none";
+            document.getElementById("receiving-screen").style.display = "block";
 
-  typingIndicator.style.display = "none";
+            const userId = localStorage.getItem("userId") || ("user_" + Math.random().toString(36).slice(2, 10));
+            localStorage.setItem("userId", userId);
+            const duration = Date.now() - (events[0]?.timestamp || Date.now());
+            
+            const payload = {
+                userId,
+                answers: { name, phone },
+                events,
+                phone: phone,
+                honeypot,
+                durationMs: duration,
+                frontend: "https://petruseva.ru"
+            };
 
-  // показать сообщение целиком
-  appendMessage(text, false);
-  messages.push({ role: "assistant", content: text });
-}
+            try {
+                const check = await fetch(QUIZ_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                const res = await check.json();
 
-// === Основная функция ===
-async function sendMessage() {
-  const text = chatInput.value.trim();
-  if (!text) return;
+                if (res.action !== "deny") {
+                    await fetch(LEAD_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            name,
+                            phone: phone,
+                            userId,
+                            source: "smart_form",
+                            no_summary: true,
+                            answersSummary: `Умная форма: ${name}, ${phone}`,
+                            messages: []
+                        })
+                    });
+                }
 
-  appendMessage(text, true);
-  messages.push({ role: "user", content: text });
-  chatInput.value = "";
+                setTimeout(() => {
+                    document.getElementById("receiving-screen").style.display = "none";
+                    document.getElementById("thanks-screen").style.display = "block";
+                    
+                    setTimeout(() => {
+                        modal.style.display = "none";
+                        document.body.style.overflow = "auto";
+                        resetForm();
+                    }, 3000);
+                }, 2000);
 
-  const now = Date.now();
-  window.lastUserMessageTime = window.lastUserMessageTime || now;
-  const responseDelay = now - window.lastUserMessageTime;
-  window.lastUserMessageTime = now;
+            } catch (error) {
+                setTimeout(() => {
+                    document.getElementById("receiving-screen").style.display = "none";
+                    document.getElementById("thanks-screen").style.display = "block";
+                    
+                    setTimeout(() => {
+                        modal.style.display = "none";
+                        document.body.style.overflow = "auto";
+                        resetForm();
+                    }, 3000);
+                }, 2000);
+            }
+        });
 
-  try {
-    const res = await fetch(OPENAI_PROXY_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages, userId, mode: "bankruptcy" })
-    });
-    const data = await res.json();
-    let reply = data.choices?.[0]?.message?.content || "Ошибка";
+        function resetForm() {
+            document.getElementById("smart-form").style.display = "block";
+            document.getElementById("receiving-screen").style.display = "none";
+            document.getElementById("thanks-screen").style.display = "none";
+            document.getElementById("contact-form").reset();
+            document.getElementById("sendBtn").disabled = false;
+            document.getElementById("status").textContent = "";
+            events = [];
+            last = Date.now();
+        }
 
-    // Антибот: если отвечает слишком быстро, форму не открываем
-    if (responseDelay < 1000) {
-      reply = reply.replace(/\[openLeadForm\]/gi, "");
-    }
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('faq-active');
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('faq-active');
+                });
+                
+                if (!isActive) {
+                    faqItem.classList.add('faq-active');
+                }
+            });
+        });
 
-    // ловим [openLeadForm] или triggerForm
-    if (/\[openLeadForm\]/i.test(reply) || data.triggerForm) {
-      const clean = reply.replace(/\[openLeadForm\]/gi, "").trim();
-      document.getElementById("leadTitle").innerText = clean || "Оставьте заявку на консультацию";
-      openLeadForm();
-      reply = clean;
-    }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    if (navMenu.classList.contains('nav-active')) {
+                        navMenu.classList.remove('nav-active');
+                        burger.classList.remove('toggle');
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            });
+        });
 
-    // Анна "печатает" живо
-    await typeMessage(reply);
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255,255,255,0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255,255,255,0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
 
-    // === Проверка на [nextMessage] ===
-    if (reply.includes("[nextMessage]")) {
-      const parts = reply.split("[nextMessage]").map(t => t.trim()).filter(Boolean);
-      if (parts.length > 1) {
-        const first = parts[0];
-        const second = parts[1];
+        const burger = document.querySelector('.burger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        burger.addEventListener('click', () => {
+            navMenu.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+            
+            if (navMenu.classList.contains('nav-active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
 
-        // обновляем первый ответ
-        chatBox.lastChild.textContent = first;
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // "Анна думает" перед вторым сообщением
-        const thinkingDelay = 1500 + Math.random() * 1000; // 1.5–2.5 сек
-        setTimeout(async () => {
-          await typeMessage(second);
-        }, thinkingDelay);
-      }
-    }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-  } catch (e) {
-    appendMessage("Ошибка соединения", false);
-  }
-}
+        document.querySelectorAll('.stat-card, .step, .feature, .contact-item').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
 
-  function quickSend(text){
-    chatInput.value=text;
-    sendMessage();
-  }
+        const QUIZ_URL2 = "https://openai-gpt-proxy-d2py.onrender.com/quiz";
+        const LEAD_URL2 = "https://openai-gpt-proxy-d2py.onrender.com/lead";
+        let step = 1, total = 5, answers = {}, events2 = [], last2 = Date.now(), submitting = false;
+        const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
+        const steps = $$(".step"), pBar = $("#pBar"), autoHint = $("#autoHint"), thanks = $("#thanksBox"), quizBody = $("#quizBody");
 
-  function startVoice(){
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.lang = "ru-RU";
-    recognition.start();
-    recognition.onresult = (e)=>{
-      const text = e.results[0][0].transcript;
-      chatInput.value=text;
-      sendMessage();
-    };
-    recognition.onerror=()=>alert("Ошибка распознавания");
-  }
+        function showStep(n) {
+            steps.forEach(s => s.style.display = "none");
+            steps[n-1].style.display = "block";
+            pBar.style.width = ((n-1)/(total-1))*100 + "%";
+            step = n;
+        }
 
-  chatInput.addEventListener("keydown", e=>{
-    if(e.key==="Enter" && !e.shiftKey){
-      e.preventDefault();
-      sendMessage();
-    }
-  });
+        function pushEvent2(type, label) {
+            const now = Date.now();
+            events2.push({ type, label, intervalMs: now - last2, timestamp: now });
+            last2 = now;
+        }
 
-  window.addEventListener("load",()=>{
-    setTimeout(()=>{
-      if(messages.length===0){
-        appendMessage("Здравствуйте! Я юрист-консультант Анна. Готова ответить на все ваши вопросы по процедуре банкротства физических лиц. Чем могу помочь?", false);
-      }
-    },1000);
-  });
+        $$(".btn-opt").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const name = btn.dataset.name, val = btn.dataset.value;
+                btn.parentElement.querySelectorAll(".btn-opt").forEach(b => {
+                    b.style.borderColor = "#DCE3EB";
+                    b.style.background = "transparent";
+                    b.style.color = "#0c2f66";
+                });
+                btn.style.borderColor = "#0066FF";
+                btn.style.color = "#0066FF";
+                btn.style.background = "#EFF5FF";
+                answers[name] = val;
+                pushEvent2("click", name + ":" + val);
+                if (step < total) {
+                    showStep(++step);
+                }
+            });
+        });
 
-  // === Форма ===
-  IMask(document.getElementById("leadPhone"), { mask: "+{7} (000) 000-00-00" });
+        const phone2 = document.getElementById("quizPhone");
+        const mask2 = IMask(phone2, { mask: '+{7} (000) 000-00-00' });
+        const nameI = document.getElementById("quizName");
+        const honeypot2 = document.getElementById("quizHoneypot");
 
-  function openLeadForm(){
-    document.getElementById("leadOverlay").style.display="block";
-    document.getElementById("leadPopup").style.display="block";
-  }
+        nameI.addEventListener('input', tryAutoSubmit);
+        phone2.addEventListener('input', tryAutoSubmit);
 
-  document.getElementById("leadOverlay").addEventListener("click", closeLeadForms);
-  function closeLeadForms(){
-    document.getElementById("leadOverlay").style.display="none";
-    document.getElementById("leadPopup").style.display="none";
-    document.getElementById("leadThanks").style.display="none";
-  }
+        async function tryAutoSubmit() {
+            if (step !== 5 || submitting) return;
+            
+            const name = nameI.value.trim();
+            let ph = phone2.value.replace(/[^0-9+]/g, '');
+            
+            const fullPhone = ph.startsWith('+7') && ph.length === 12;
+            if (honeypot2.value || !name || !fullPhone) return;
+            
+            submitting = true;
+            
+            quizBody.innerHTML = `
+                <div class="receiving-box" style="text-align: center; padding: 40px 20px;">
+                    <img src="https://i.imgur.com/6vU2Ypa.png" alt="Наталья Петрусёва" style="width: 90px; height: 90px; border-radius: 50%; margin-bottom: 18px; object-fit: cover; animation: pulse 2s infinite;">
+                    <p style="font-size: 17px; color: #0c2f66; font-weight: 600; margin-bottom: 8px;">Получила вашу заявку</p>
+                    <p style="font-size: 14px; color: #7c8a9a;">Скоро свяжусь с вами</p>
+                </div>
+            `;
 
-  document.getElementById("leadSubmitBtn").addEventListener("click", async ()=>{
-    const name = document.getElementById("leadName").value.trim();
-    let phone = document.getElementById("leadPhone").value.replace(/\D/g,""); 
+            const userId = localStorage.getItem("userId") || ("user_" + Math.random().toString(36).slice(2, 10));
+            localStorage.setItem("userId", userId);
+            
+            const payload = {
+                userId,
+                answers,
+                events: events2,
+                phone: ph,
+                honeypot: honeypot2.value,
+                durationMs: Date.now() - (events2[0]?.timestamp || Date.now()),
+                frontend: "https://petruseva.ru"
+            };
+            
+            try {
+                const r = await fetch(QUIZ_URL2, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                const d = await r.json();
+                
+                if (d.action !== "deny") {
+                    const answersSummary = Object.entries(answers).map(([q, a]) => `${q}: ${a}`).join("; ");
+                    await fetch(LEAD_URL2, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            name,
+                            phone: ph,
+                            userId,
+                            source: "quiz",
+                            no_summary: true,
+                            answersSummary,
+                            messages: []
+                        })
+                    });
+                }
+                
+                setTimeout(() => {
+                    quizBody.innerHTML = `
+                        <div class="thanks-box" style="display: block; text-align: center; padding: 40px 20px;">
+                            <img src="https://i.imgur.com/6vU2Ypa.png" alt="Наталья Петрусёва" style="width: 90px; height: 90px; border-radius: 50%; margin-bottom: 18px; object-fit: cover;">
+                            <p style="font-size: 17px; color: #0c2f66; font-weight: 600;">Скоро свяжусь с вами</p>
+                        </div>
+                    `;
+                }, 2000);
+                
+            } catch (e) {
+                console.error("Submission error:", e);
+                setTimeout(() => {
+                    quizBody.innerHTML = `
+                        <div class="thanks-box" style="display: block; text-align: center; padding: 40px 20px;">
+                            <img src="https://i.imgur.com/6vU2Ypa.png" alt="Наталья Петрусёва" style="width: 90px; height: 90px; border-radius: 50%; margin-bottom: 18px; object-fit: cover;">
+                            <p style="font-size: 17px; color: #0c2f66; font-weight: 600;">Скоро свяжусь с вами</p>
+                        </div>
+                    `;
+                }, 2000);
+            }
+        }
 
-    if(!name || phone.length < 10){ 
-      alert("Введите имя и корректный номер телефона"); 
-      return; 
-    }
-
-    // нормализуем к виду +7XXXXXXXXXX
-    phone = "+7" + phone.slice(-10);
-
-    const payload = { name, phone, userId, messages, utm_source, utm_content };
-
-    document.getElementById("leadPopup").style.display="none";
-    document.getElementById("leadThanks").style.display="block";
-
-    setTimeout(closeLeadForms, 3000);
-
-    try {
-      await fetch(LEAD_URL,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(payload)
-      });
-    }catch(e){ console.error("Ошибка отправки",e); }
-  });
-
-  // FAQ functionality
-  document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-      const item = question.parentElement;
-      item.classList.toggle('active');
-      question.querySelector('span').textContent = item.classList.contains('active') ? '−' : '+';
-    });
-  });
-</script>
-  <script>
-const chatContainer = document.querySelector('.chat-container');
-const consultSection = document.querySelector('#consult h2');
-const consultSubtitle = document.querySelector('#consult p');
-const suggestions = document.querySelector('.chat-suggestions');
-const inputField = document.getElementById('chatInput');
-
-inputField.addEventListener('focus', () => {
-  if (window.innerWidth < 768) {
-    consultSection.style.display = 'none';
-    consultSubtitle.style.display = 'none';
-    chatContainer.style.position = 'fixed';
-    chatContainer.style.top = '0';
-    chatContainer.style.left = '0';
-    chatContainer.style.width = '100%';
-    chatContainer.style.height = '100vh';
-    chatContainer.style.borderRadius = '0';
-    suggestions.style.display = 'flex';
-  }
-});
-
-inputField.addEventListener('blur', () => {
-  if (window.innerWidth < 768) {
-    consultSection.style.display = '';
-    consultSubtitle.style.display = '';
-    chatContainer.style = '';
-    suggestions.style.display = '';
-  }
-});
-</script>
-  <script>
-const QUIZ_URL = "https://openai-gpt-proxy-d2py.onrender.com/quiz";
-
-let step = 1;
-const total = 5;
-const answers = {};
-const events = [];
-let last = Date.now();
-
-const $ = s => document.querySelector(s);
-const $$ = s => document.querySelectorAll(s);
-const steps = $$(".step");
-const pText = $("#pText");
-const pBar = $("#pBar");
-const status = $("#status");
-
-function showStep(n){
-  steps.forEach(s=>s.classList.remove("active"));
-  steps[n-1].classList.add("active");
-  pText.textContent = n+" / "+total;
-  pBar.style.width = ((n-1)/(total-1))*100+"%";
-  status.textContent = "Шаг "+n+" из "+total;
-  $("#prevBtn").disabled = n===1;
-  $("#nextBtn").textContent = n<total ? "Далее →" : "Отправить";
-}
-function pushEvent(type,label){
-  const now=Date.now();
-  events.push({type,label,intervalMs:now-last,timestamp:now});
-  last=now;
-}
-
-$$(".btn-opt").forEach(btn=>{
-  btn.onclick=()=>{
-    const name=btn.dataset.name,val=btn.dataset.value;
-    btn.parentElement.querySelectorAll(".btn-opt").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    answers[name]=val;
-    pushEvent("click",name+":"+val);
-    if(step<4) setTimeout(()=>showStep(++step),200);
-  };
-});
-$("#prevBtn").onclick=()=>{if(step>1)showStep(--step);}
-$("#nextBtn").onclick=async()=>{
-  if(step<4){showStep(++step);return;}
-  if(step===4){showStep(++step);}
-  else{
-    const name=$("#quizName").value.trim();
-    let phone=$("#quizPhone").value.replace(/[^0-9+]/g,"");
-    const honeypot=$("#quizHoneypot").value; // honeypot значение
-    if(phone&&!phone.startsWith("+7"))phone="+7"+phone.replace(/^8/,"").slice(-10);
-    if(!name||phone.length<12)return alert("Введите корректные данные");
-
-    $("#nextBtn").disabled=true;$("#nextBtn").textContent="Отправляем…";
-
-    const userId=localStorage.getItem("userId")||("user_"+Math.random().toString(36).slice(2,10));
-    localStorage.setItem("userId",userId);
-    
-    // ОТПРАВКА НА /quiz С HONEYPOT
-    const payload={userId,answers,events,phone,honeypot,durationMs:Date.now()-events[0]?.timestamp||0};
-    try{
-      const r=await fetch(QUIZ_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
-      const d=await r.json();
-      
-      // ПОЛУЧАЕМ ВЕРДИКТ ОТ АНТИБОТА
-      const verdict=d.action==="allow"?"✅ Подходит, юрист свяжется":
-        d.action==="challenge"?"⚠️ Нужна проверка":"⛔️ Похоже, это бот";
-      $("#summaryBox").style.display="block";
-      $("#summaryBox").textContent=verdict;
-      
-      // ЕСЛИ НЕ БОТ - ОТПРАВЛЯЕМ В /lead
-      if(d.action !== "deny") {
-        const answersSummary = Object.entries(answers).map(([q,a]) => `${q}: ${a}`).join("; ");
-        await fetch(LEAD_URL,{method:"POST",headers:{"Content-Type":"application/json"},
-          body:JSON.stringify({
-            name,
-            phone,
-            userId,
-            source: "quiz",
-            no_summary: true,
-            answersSummary: answersSummary,
-            messages: []
-          })});
-      }
-      $("#nextBtn").textContent="Готово ✔";
-    }catch(e){alert("Ошибка соединения");$("#nextBtn").textContent="Отправить";}
-    finally{$("#nextBtn").disabled=false;}
-  }
-};
-showStep(1);
-</script>
-  <!-- === Маска телефона для квиза === -->
-<script src="https://unpkg.com/imask"></script>
-<script>
-const phoneInput = document.getElementById("quizPhone");
-const mask = IMask(phoneInput, {
-  mask: '+{7} (000) 000-00-00',
-  lazy: false, // сразу видно +7
-  placeholderChar: '_'
-});
-
-phoneInput.addEventListener('input', () => {
-  const digits = phoneInput.value.replace(/\D/g, '');
-  // если первая цифра не 9 — заменяем на 9
-  if (digits[1] && digits[1] !== '9') {
-    const corrected = '+7 (9' + digits.slice(2, 11).padEnd(9, '_');
-    phoneInput.value = corrected.replace(/_/g, '');
-    mask.updateValue();
-  }
-});
-  // === ДЕТЕКТОР PASTE ДЛЯ АНТИБОТА ===
-phoneInput.addEventListener('paste', (e) => {
-  pushEvent("paste", "phone");
-});
-</script>
+        showStep(1);
+    </script>
 </body>
 </html>
